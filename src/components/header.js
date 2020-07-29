@@ -1,8 +1,24 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { useState } from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import HeaderStyles from "./Header.module.css"
 import Img from "gatsby-image"
+import PropTypes from "prop-types"
+import HeaderStyles from "./Header.module.css"
+
+function XItem(props) {
+  const [menu, showMenu] = useState(false)
+
+  return (
+    <div
+      className={
+        HeaderStyles.menu_burguer_container +
+        `${menu ? " " + HeaderStyles.change : ""}`
+      }
+      onClick={() => showMenu(!menu)}
+    >
+      {props.children}
+    </div>
+  )
+}
 
 const Header = () => (
   <StaticQuery
@@ -31,7 +47,7 @@ const Header = () => (
     render={data => (
       <header>
         <nav className={HeaderStyles.nav_container}>
-          <a className={HeaderStyles.a_link} href="/">
+          <a className={HeaderStyles.a_link_img} href="/">
             <Img
               className={HeaderStyles.a_link.img}
               fluid={data.allImageSharp.edges[1].node.fluid}
@@ -56,6 +72,11 @@ const Header = () => (
               </li>
             ))}
           </ul>
+          <XItem>
+            <div className={HeaderStyles.bar1}></div>
+            <div className={HeaderStyles.bar2}></div>
+            <div className={HeaderStyles.bar3}></div>
+          </XItem>
         </nav>
       </header>
     )}

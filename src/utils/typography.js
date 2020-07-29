@@ -1,16 +1,25 @@
 import Typography from "typography"
-import kirkhamTheme from "typography-theme-kirkham"
 
-kirkhamTheme.baseFontSize = "14px"
-kirkhamTheme.headerColor = "#707070"
-kirkhamTheme.bodyColor = "#707070"
-kirkhamTheme.overrideThemeStyles = ({ rhythm }, options) => ({
-  a: {
-    color: "#FF786C",
-  },
+const typography = new Typography({
+  baseFontSize: "12px",
+  headerColor: "#707070",
+  bodyColor: "#707070",
+  baseLineHeight: 1.5,
+  headerFontFamily: ["Playfair Display", "serif"],
+  bodyFontFamily: ["Lato", "sans-serif"],
+  overrideThemeStyles: ({ rhythm }, options, styles) => ({
+    a: {
+      color: "#FF786C",
+    },
+  }),
+  // See below for the full list of options.
 })
 
-const typography = new Typography(kirkhamTheme)
+// Output CSS as string.
+typography.toString()
 
-export const { scale, rhythm, options } = typography
+// Or insert styles directly into the <head> (works well for client-only
+// JS web apps.
+typography.injectStyles()
+
 export default typography
