@@ -93,7 +93,7 @@
     }
 
     .ul_container {
-        background-color: khaki;
+        background-color: white;
         width: 100%;
         height: calc(100vh - 80px);
         position: absolute;
@@ -103,6 +103,7 @@
         justify-content: space-evenly;
         bottom: 0;
         visibility: hidden;
+        border-top: solid 1px #3D3D3D;
     }
 
     .li_item {

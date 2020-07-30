@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
@@ -7,17 +7,23 @@ import { Helmet } from "react-helmet"
 
 const Header = () => {
   const [menuMobile, showMenuMobile] = useState(false)
+  const [size, setResize] = useState({
+    width: window.innerWidth,
+  })
 
-  // function checkSize() {
-  //   window.addEventListener("resize", function (event) {
-  //     if (menuMobile && window.innerWidth > 768) {
-  //       return true
-  //     }
-  //     return false
-  //   })
-  // }
+  useLayoutEffect(() => {
+    function handleresize() {
+      setResize({
+        width: window.innerWidth,
+      })
+    }
 
-  //console.log(checkSize)
+    window.addEventListener("resize", handleresize)
+
+    return () => {
+      window.removeEventListener("resize", handleresize)
+    }
+  }, [])
 
   return (
     <StaticQuery
@@ -48,10 +54,8 @@ const Header = () => {
           <Helmet
             bodyAttributes={{
               class: `${
-                menuMobile && window.innerWidth <= 768
+                size.width <= 768 && menuMobile
                   ? HeaderStyles.prevent_scroll
-                  : menuMobile && window.innerWidth > 768
-                  ? ""
                   : ""
               }`,
             }}
@@ -81,9 +85,9 @@ const Header = () => {
                       paddingBottom: "2px",
                     }}
                     onClick={() => {
-                      if (window.innerWidth <= 768) {
+                      size.width <= 768 &&
+                        menuMobile &&
                         showMenuMobile(!menuMobile)
-                      }
                     }}
                   >
                     {menuItem.node.title}
