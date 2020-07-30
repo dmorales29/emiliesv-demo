@@ -1,5 +1,5 @@
 import React from "react"
-import LayoutStyles from "./Layout.module.css"
+import LayoutStyles from "./layout.module.css"
 import Header from "../components/Header"
 
 export default function Layout({ children }) {
