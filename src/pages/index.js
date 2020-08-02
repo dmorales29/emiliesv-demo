@@ -1,11 +1,11 @@
 import React from "react"
 import SEO from "../components/seo"
-import MainSlider from "../components/home/slider"
+import MainSection from "../components/home/MainSection"
 
 const IndexPage = () => (
   <>
     <SEO title="Home" />
-    <MainSlider />
+    <MainSection />
   </>
 )
 

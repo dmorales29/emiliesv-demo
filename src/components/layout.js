@@ -1,12 +1,12 @@
 import React from "react"
-import LayoutStyles from "./layout.module.css"
-import Header from "../components/Header"
+import layoutStyles from "./layout.module.css"
+import Header from "./header/Header"
 
 export default function Layout({ children }) {
   return (
-    <div className={LayoutStyles.container_layout}>
+    <div className={layoutStyles.container_layout}>
       <Header />
-      {children}
+      <div className={layoutStyles.container_inner_layout}>{children}</div>
     </div>
   )
 }

@@ -1,0 +1,115 @@
+.header {
+  height: 80px;
+}
+
+.nav_container {
+  background-color: white;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  right: 0;
+  /* -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15); */
+}
+
+.a_link_img {
+  width: 80px;
+  margin: 0 10px;
+}
+
+.a_link_img img {
+  margin: 0;
+}
+
+.ul_container {
+  margin: 0;
+}
+
+.li_item {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.a_link {
+  text-decoration: none;
+  color: var(--medium-gray-2);
+}
+
+.a_link::after {
+  display: block;
+  content: "";
+  border-bottom: solid 2px var(--color-1);
+  transform: scaleX(0);
+  transition: transform 0.25s ease-in-out;
+}
+
+.a_link:hover::after {
+  transform: scaleX(1);
+  transition: transform 0.25s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu_burguer_container {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--dark-gray-1);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  .nav_container {
+    justify-content: space-between;
+  }
+
+  .ul_container {
+    background-color: white;
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: absolute;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    bottom: 0;
+    visibility: hidden;
+    border-top: solid 1px var(--dark-gray-1);
+  }
+
+  .li_item {
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}

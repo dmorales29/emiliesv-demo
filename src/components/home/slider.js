@@ -1,58 +1,99 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import sliderStylers from "./slider.module.css"
 
-export const query = graphql`
-  query GET_MAIN_IMAGE {
-    allWordpressPage(filter: { slug: { eq: "home" } }) {
-      edges {
-        node {
-          acf {
-            slogan_principal
-            imagen_principal {
-              source_url
-            }
-            slogan_sandalias
-            imagen_sandalias {
-              source_url
-            }
-            slogan_flats
-            imagen_flats {
-              source_url
-            }
-            slogan_plataformas_flatfmors
-            imagen_plataformas {
-              source_url
-            }
-            imagen_flatforms {
-              source_url
+function Slider() {
+  const data = useStaticQuery(graphql`
+    query {
+      novedades: allWordpressPage(filter: { slug: { eq: "novedades" } }) {
+        edges {
+          node {
+            acf {
+              imagen_novedad_1 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              imagen_novedad_2 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              imagen_novedad_3 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              imagen_novedad_4 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              imagen_novedad_5 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              imagen_novedad_6 {
+                localFile {
+                  childImageSharp {
+                    fluid(jpegQuality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
             }
           }
-          slug
         }
       }
     }
-  }
-`
+  `)
 
-function MainSlider() {
   return (
-    <StaticQuery
-      query={query}
-      render={data => (
-        <div>
-          <h1>{data.allWordpressPage.edges[0].node.acf.slogan_principal}</h1>
-          <img
-            className={"a"}
-            src={
-              data.allWordpressPage.edges[0].node.acf.imagen_principal
-                .source_url
-            }
-            alt=""
-          />
-        </div>
-      )}
-    />
+    <div className={sliderStylers.slider_container}>
+      <h2>Nuevos estilos</h2>
+      <div className={sliderStylers.novedades_container}>
+        {Object.keys(data.novedades.edges[0].node.acf).map(nameOfElement => (
+          <a
+            href=""
+            key={nameOfElement}
+            className={sliderStylers.wrapper_images}
+          >
+            <span className={sliderStylers.new_badge}>New</span>
+            <Img
+              className={sliderStylers.novedades_container_img}
+              fluid={
+                data.novedades.edges[0].node.acf[nameOfElement].localFile
+                  .childImageSharp.fluid
+              }
+            />
+          </a>
+        ))}
+      </div>
+    </div>
   )
 }
 
-export default MainSlider
+export default Slider
