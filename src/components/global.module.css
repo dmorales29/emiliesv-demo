@@ -1,45 +1,52 @@
 /* COLORS */
 :root {
-    --color-1: #FF786C;
-    --color-1-hover: #FE6355;    
-    --color-2: #9BB0F9;
-    --color-3: #D4FF17;
-    --color-4: #26FFCD;
-    --light-gray-1: #FBFBFB;
-    --light-gray-2: #DEDEDE;
-    --medium-gray-1: #BBBBBB;
-    --medium-gray-2: #707070;
-    --dark-gray-1: #3D3D3D;
+  --color-1: #ff786c;
+  --color-1-hover: #fe6355;
+  --color-2: #9bb0f9;
+  --color-3: #d4ff17;
+  --color-4: #26ffcd;
+  --light-gray-1: #fbfbfb;
+  --light-gray-2: #dedede;
+  --medium-gray-1: #bbbbbb;
+  --medium-gray-2: #707070;
+  --dark-gray-1: #3d3d3d;
 }
 /* END COLORS */
 
 /* BOTÓN CTA*/
 .btn_cta {
-    background-color: var(--color-1);
-    border: 0;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.25s;
+  background-color: var(--color-1);
+  border: 0;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.25s;
 }
 
 .btn_cta:hover {
-    background-color: var(--color-1-hover);    
+  background-color: var(--color-1-hover);
+}
+
+@media only screen and (max-width: 767px) {
+  .btn_cta {
+    margin: 0 auto;
+    display: block;
+  }
 }
 /* END BOTÓN CTA */
 
 /* OVERALL*/
 .prevent_scroll {
-    overflow: hidden;
-    height: 100vh;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .visible {
-    visibility: visible !important;
+  visibility: visible !important;
 }
 
 .not_visible {
-    visibility: hidden;
+  visibility: hidden;
 }
 /* END OVERALL*/

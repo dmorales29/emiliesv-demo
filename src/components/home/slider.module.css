@@ -7,16 +7,19 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 720px;
 }
 
 .slider_container h2 {
   text-transform: uppercase;
+  padding: 0 0 15px 0;
+  margin: 0;
 }
 
 .novedades_container {
   display: flex;
   overflow: hidden;
-  width: 680px;
+  width: 100%;
 }
 
 .wrapper_images {
@@ -72,14 +75,12 @@
 }
 
 @media only screen and (max-width: 767px) {
-}
-
-@media only screen and (max-width: 767px) {
   .slider_container {
     z-index: 2;
     width: 100%;
     padding: 15px 0;
     position: relative;
+    overflow: hidden;
   }
 
   .slider_container h2 {
@@ -87,7 +88,7 @@
   }
 
   .novedades_container {
-    width: 100%;
+    width: 600%;
   }
 
   .wrapper_images {
@@ -96,7 +97,7 @@
   }
 
   .novedades_container_img {
-    min-width: 320px;
+    width: 100%;
   }
 
   .slider_controller {

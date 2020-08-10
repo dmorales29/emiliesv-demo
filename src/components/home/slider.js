@@ -12,9 +12,10 @@ function Slider() {
   const [x, setX] = useState(0)
 
   //Revisar lógica de slider y el global state para los media query
+  //Cuando se hace resize y desaparece un slide sale disable la flecha
 
   const goLeft = () => {
-    setX(x + 240)
+    setX(x + 120)
 
     if (x === 0) {
       setX(0)
@@ -22,11 +23,17 @@ function Slider() {
   }
 
   const goRight = () => {
-    setX(x - 240)
+    if (window.innerWidth < 768) {
+      setX(x - 100)
+    } else {
+      setX(x - 120)
+    }
 
-    if (x <= -720 && window.innerWidth > 1023) {
+    if (x <= -360 && window.innerWidth > 1023) {
       setX(0)
-    } else if (x <= -960 && window.innerWidth <= 1023) {
+    } else if (x <= -480 && window.innerWidth <= 1023) {
+      setX(0)
+    } else if (x <= -960 && window.innerWidth < 768) {
       setX(0)
     }
   }
@@ -104,7 +111,7 @@ function Slider() {
       <div className={sliderStyles.novedades_container}>
         {Object.keys(data.novedades.edges[0].node.acf).map(nameOfElement => (
           <a
-            style={{ transform: `translateX(${x}px)` }}
+            style={{ transform: `translateX(${x}%)` }}
             href=""
             key={nameOfElement}
             className={sliderStyles.wrapper_images}
@@ -136,9 +143,9 @@ function Slider() {
         <span
           className={
             sliderStyles.icon +
-            (x <= -720 && window.innerWidth > 1023
+            (x <= -360 && window.innerWidth > 1023
               ? " " + sliderStyles.opacity
-              : x <= -960 && window.innerWidth <= 1023
+              : x <= -480 && window.innerWidth <= 1023
               ? " " + sliderStyles.opacity
               : "")
           }

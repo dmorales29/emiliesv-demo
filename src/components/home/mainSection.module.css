@@ -61,17 +61,18 @@
   .header_container {
     z-index: 2;
     width: 100%;
-    padding: 15px;
+    padding: calc(50% - 20px) 30px 0 30px;
+    position: absolute;
   }
 
   .h1 {
     max-width: 100%;
     color: white;
+    text-align: center;
   }
 
   .main_container_image {
     width: 100%;
-    position: absolute !important;
   }
 
   .main_container_image::before {
@@ -85,6 +86,9 @@
   }
 
   .background_image {
-    display: none;
+    z-index: 1;
+    left: -10%;
+    top: 5%;
+    width: 40%;
   }
 }
