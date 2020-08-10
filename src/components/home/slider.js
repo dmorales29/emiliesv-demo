@@ -1,9 +1,36 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import sliderStylers from "./slider.module.css"
+import sliderStyles from "./slider.module.css"
+import {
+  IoIosArrowDropleftCircle,
+  IoIosArrowDroprightCircle,
+} from "react-icons/io"
+import { useState } from "react"
 
 function Slider() {
+  const [x, setX] = useState(0)
+
+  //Revisar lógica de slider y el global state para los media query
+
+  const goLeft = () => {
+    setX(x + 240)
+
+    if (x === 0) {
+      setX(0)
+    }
+  }
+
+  const goRight = () => {
+    setX(x - 240)
+
+    if (x <= -720 && window.innerWidth > 1023) {
+      setX(0)
+    } else if (x <= -960 && window.innerWidth <= 1023) {
+      setX(0)
+    }
+  }
+
   const data = useStaticQuery(graphql`
     query {
       novedades: allWordpressPage(filter: { slug: { eq: "novedades" } }) {
@@ -72,18 +99,19 @@ function Slider() {
   `)
 
   return (
-    <div className={sliderStylers.slider_container}>
+    <div className={sliderStyles.slider_container}>
       <h2>Nuevos estilos</h2>
-      <div className={sliderStylers.novedades_container}>
+      <div className={sliderStyles.novedades_container}>
         {Object.keys(data.novedades.edges[0].node.acf).map(nameOfElement => (
           <a
+            style={{ transform: `translateX(${x}px)` }}
             href=""
             key={nameOfElement}
-            className={sliderStylers.wrapper_images}
+            className={sliderStyles.wrapper_images}
           >
-            <span className={sliderStylers.new_badge}>New</span>
+            <span className={sliderStyles.new_badge}>New</span>
             <Img
-              className={sliderStylers.novedades_container_img}
+              className={sliderStyles.novedades_container_img}
               fluid={
                 data.novedades.edges[0].node.acf[nameOfElement].localFile
                   .childImageSharp.fluid
@@ -91,6 +119,37 @@ function Slider() {
             />
           </a>
         ))}
+      </div>
+      <div className={sliderStyles.slider_controller}>
+        <span
+          className={
+            sliderStyles.icon + (x >= 0 ? " " + sliderStyles.opacity : "")
+          }
+          onClick={() => goLeft()}
+        >
+          <IoIosArrowDropleftCircle
+            viewBox="50 50 410 410"
+            size="30px"
+            color="var(--medium-gray-2)"
+          />
+        </span>
+        <span
+          className={
+            sliderStyles.icon +
+            (x <= -720 && window.innerWidth > 1023
+              ? " " + sliderStyles.opacity
+              : x <= -960 && window.innerWidth <= 1023
+              ? " " + sliderStyles.opacity
+              : "")
+          }
+          onClick={() => goRight()}
+        >
+          <IoIosArrowDroprightCircle
+            viewBox="50 50 410 410"
+            size="30px"
+            color="var(--medium-gray-2)"
+          />
+        </span>
       </div>
     </div>
   )

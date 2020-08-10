@@ -12,6 +12,12 @@ const Header = () => {
     width: window.innerWidth,
   })
 
+  //Revisar que no se esté renderizando más de lo necesario
+
+  //Recién cargada la página al abrir menú en mobile y clikear
+  //a otra pestaña hay unflasheo de transición del home
+  //(desaparece menú, muestra home y luego se va a la pestaña asignada)
+
   useLayoutEffect(() => {
     function handleresize() {
       setResize({
