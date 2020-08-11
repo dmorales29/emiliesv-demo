@@ -8,5 +8,18 @@
 .container_inner_layout {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 25px;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* .container_inner_layout {
+    padding: 0 0 0 25px;
+  } */
+}
+
+@media only screen and (max-width: 767px) {
+  .container_inner_layout {
+    padding: 0;
+  }
 }
 /* END WRAPPER */

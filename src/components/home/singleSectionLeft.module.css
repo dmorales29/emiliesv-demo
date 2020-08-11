@@ -1,0 +1,65 @@
+.mainSection {
+  padding: 100px 0;
+  display: flex;
+  position: relative;
+}
+
+.photoContainer {
+  width: 50%;
+  position: relative;
+}
+
+.image {
+  max-width: 540px;
+  position: relative;
+}
+
+.image img {
+  margin: 0;
+}
+
+.image span {
+  color: white;
+  font-size: 72px;
+  font-weight: bold;
+  text-transform: lowercase;
+  position: absolute;
+  top: calc(50% - 54px);
+  right: calc(50% - 148.5px);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.arrowDecoration {
+  position: absolute !important;
+  left: 30%;
+  width: 40%;
+  height: 58%;
+  top: 21%;
+  max-width: 350px;
+  z-index: -1;
+}
+
+.polkaDecoration {
+  position: absolute !important;
+  left: 71%;
+  right: 0%;
+  width: 29%;
+  height: 58%;
+  top: 10%;
+  bottom: 32%;
+  max-width: 354px;
+  max-height: 115px;
+  z-index: -1;
+}
+.arrowDecoration img,
+.polkaDecoration img {
+  margin: 0;
+}
+
+@media only screen and (max-width: 1023px) {
+  .photoContainer span {
+    font-size: 45px;
+    top: calc(50% - 32.5px);
+    right: calc(50% - 92.75px);
+  }
+}

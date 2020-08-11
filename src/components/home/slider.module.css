@@ -1,7 +1,6 @@
 .slider_container {
   position: absolute;
   bottom: 0;
-  padding: 0 0 0 40px;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;

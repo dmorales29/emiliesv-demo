@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import globalStyles from "../global.module.css"
 import mainSectionStyles from "./mainSection.module.css"
 import Slider from "./Slider"
+import MainCTAComponent from "./MainCTAComponent"
 
 function MainSection() {
   const data = useStaticQuery(graphql`
-    query GET_MAIN_IMAGE {
+    query {
       home: allWordpressPage(filter: { slug: { eq: "home" } }) {
         edges {
           node {
@@ -42,12 +42,10 @@ function MainSection() {
 
   return (
     <section className={mainSectionStyles.main_container}>
-      <div className={mainSectionStyles.header_container}>
-        <h1 className={mainSectionStyles.h1}>
-          {data.home.edges[0].node.acf.slogan_principal}
-        </h1>
-        <button className={globalStyles.btn_cta}>Nuevos estilos</button>
-      </div>
+      <MainCTAComponent
+        btnCTA="Nuevos estilos"
+        titleData={data.home.edges[0].node.acf.slogan_principal}
+      />
       <Img
         className={mainSectionStyles.main_container_image}
         fluid={
