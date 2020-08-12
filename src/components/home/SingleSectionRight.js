@@ -1,5 +1,5 @@
 import React from "react"
-import singleSectionLeftStyles from "./singleSectionLeft.module.css"
+import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SubCTAComponent from "./SubCTAComponent"
@@ -51,28 +51,33 @@ function SingleSectionRight() {
   `)
 
   return (
-    <section className={singleSectionLeftStyles.mainSection}>
-      <div className={singleSectionLeftStyles.photoContainer}>
-        <div className={singleSectionLeftStyles.image}>
+    <section
+      className={`${singleSectionStyles.mainSection} ${singleSectionStyles.rightFlexDirection}`}
+    >
+      <SubCTAComponent
+        btnCTA="Descubre"
+        titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
+      />
+      <div
+        className={`${singleSectionStyles.photoContainer} ${singleSectionStyles.rightEnd}`}
+      >
+        <div className={singleSectionStyles.image}>
           <Img
+            className={singleSectionStyles.imageWrapper}
             fluid={
               data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
                 .childImageSharp.fluid
             }
           />
-          <span>Sandalias</span>
+          <span>Flats</span>
         </div>
       </div>
-      <SubCTAComponent
-        btnCTA="Descubre"
-        titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
-      />
       <Img
-        className={singleSectionLeftStyles.arrowDecoration}
+        className={`${singleSectionStyles.arrowDecoration} ${singleSectionStyles.rightArrowDecoration}`}
         fluid={data.decorationArrow.edges[0].node.fluid}
       />
       <Img
-        className={singleSectionLeftStyles.polkaDecoration}
+        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.rightPolkaDecoration}`}
         fluid={data.decorationPolka.edges[0].node.fluid}
       />
     </section>

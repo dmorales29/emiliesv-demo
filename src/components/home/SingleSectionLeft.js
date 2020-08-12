@@ -1,5 +1,5 @@
 import React from "react"
-import singleSectionLeftStyles from "./singleSectionLeft.module.css"
+import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SubCTAComponent from "./SubCTAComponent"
@@ -51,10 +51,11 @@ function SingleSectionLeft() {
   `)
 
   return (
-    <section className={singleSectionLeftStyles.mainSection}>
-      <div className={singleSectionLeftStyles.photoContainer}>
-        <div className={singleSectionLeftStyles.image}>
+    <section className={singleSectionStyles.mainSection}>
+      <div className={singleSectionStyles.photoContainer}>
+        <div className={singleSectionStyles.image}>
           <Img
+            className={singleSectionStyles.imageWrapper}
             fluid={
               data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
                 .childImageSharp.fluid
@@ -68,11 +69,11 @@ function SingleSectionLeft() {
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_sandalias}
       />
       <Img
-        className={singleSectionLeftStyles.arrowDecoration}
+        className={singleSectionStyles.arrowDecoration}
         fluid={data.decorationArrow.edges[0].node.fluid}
       />
       <Img
-        className={singleSectionLeftStyles.polkaDecoration}
+        className={singleSectionStyles.polkaDecoration}
         fluid={data.decorationPolka.edges[0].node.fluid}
       />
     </section>

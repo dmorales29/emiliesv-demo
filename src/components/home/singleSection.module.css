@@ -6,16 +6,22 @@
 
 .photoContainer {
   width: 50%;
-  position: relative;
 }
 
 .image {
   max-width: 540px;
   position: relative;
+  flex: 1 1 auto;
+  display: flex;
 }
 
 .image img {
   margin: 0;
+}
+
+.imageWrapper {
+  overflow: hidden;
+  flex: 1 1 auto;
 }
 
 .image span {
@@ -24,8 +30,9 @@
   font-weight: bold;
   text-transform: lowercase;
   position: absolute;
-  top: calc(50% - 54px);
-  right: calc(50% - 148.5px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -59,7 +66,51 @@
 @media only screen and (max-width: 1023px) {
   .photoContainer span {
     font-size: 45px;
-    top: calc(50% - 32.5px);
-    right: calc(50% - 92.75px);
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .mainSection {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .photoContainer {
+    width: 100%;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+
+  .arrowDecoration {
+    display: none;
+  }
+
+  .polkaDecoration {
+    display: none;
+  }
+}
+
+/* SINGLE SECTION RIGHT */
+.rightEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rightArrowDecoration {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.rightPolkaDecoration {
+  right: 71%;
+  left: 0%;
+}
+
+@media only screen and (max-width: 767px) {
+  .rightFlexDirection {
+    flex-direction: column-reverse;
+  }
+}
+/* END SINGLE SECTION RIGHT */

@@ -9,7 +9,8 @@ import { Helmet } from "react-helmet"
 const Header = () => {
   const [menuMobile, showMenuMobile] = useState(false)
   const [size, setResize] = useState({
-    width: window.innerWidth,
+    width: 0,
+    //width: window.innerWidth,
   })
 
   //Revisar que no se esté renderizando más de lo necesario
