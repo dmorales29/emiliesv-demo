@@ -3,6 +3,7 @@ import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SubCTAComponent from "./SubCTAComponent"
+import SquareImage from "./SquareImage"
 
 function SingleSectionLeft() {
   const data = useStaticQuery(graphql`
@@ -53,20 +54,17 @@ function SingleSectionLeft() {
   return (
     <section className={singleSectionStyles.mainSection}>
       <div className={singleSectionStyles.photoContainer}>
-        <div className={singleSectionStyles.image}>
-          <Img
-            className={singleSectionStyles.imageWrapper}
-            fluid={
-              data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
-                .childImageSharp.fluid
-            }
-          />
-          <span>Sandalias</span>
-        </div>
+        <SquareImage
+          data={
+            data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
+              .childImageSharp.fluid
+          }
+          titleSquare="Sandalias"
+        />
       </div>
       <SubCTAComponent
-        btnCTA="Encuentra el ideal"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_sandalias}
+        btnCTA="Encuentra el ideal"
       />
       <Img
         className={singleSectionStyles.arrowDecoration}

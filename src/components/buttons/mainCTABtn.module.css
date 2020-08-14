@@ -1,0 +1,15 @@
+.btn_cta {
+  display: inline-block;
+  background-color: var(--color-1);
+  border: 0;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s;
+  margin: 0 auto;
+}
+
+.btn_cta:hover {
+  background-color: var(--color-1-hover);
+}

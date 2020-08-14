@@ -43,7 +43,6 @@ function MainSection() {
   return (
     <section className={mainSectionStyles.main_container}>
       <MainCTAComponent
-        btnCTA="Nuevos estilos"
         titleData={data.home.edges[0].node.acf.slogan_principal}
       />
       <Img

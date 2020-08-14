@@ -1,0 +1,33 @@
+.image {
+  max-width: 540px;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.image img {
+  margin: 0;
+}
+
+.image span {
+  color: white;
+  font-size: 72px;
+  font-weight: bold;
+  text-transform: lowercase;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 1023px) {
+  .image span {
+    font-size: 45px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .image {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,86 @@
+.h2 {
+  text-transform: uppercase;
+  font-size: 36px;
+  max-width: 400px;
+  padding: 0 0 20px 0;
+  margin: 0 auto 20px auto;
+}
+
+.imagesContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imageLeft,
+.imageRight {
+  width: 50%;
+}
+
+.imageLeft span,
+.imageRight span {
+  top: 42.5%;
+}
+
+.imageLeft div,
+.imageRight div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+}
+
+.imageRight div {
+  margin: 0 0 0 auto;
+}
+
+.imageLeft div a,
+.imageRight div a {
+  margin: 20px auto;
+  position: absolute;
+  right: 50%;
+  top: 45%;
+  transform: translate(50%, 50%);
+}
+
+@media only screen and (max-width: 1023px) {
+  .h2 {
+    font-size: 24px;
+    max-width: 260px;
+  }
+
+  .imageLeft div a,
+  .imageRight div a {
+    margin: 0px auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mainSection {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .h2 {
+    max-width: calc(100% - 60px);
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+    padding: 0;
+    margin: 20px auto;
+  }
+
+  .imagesContainer {
+    flex-direction: column;
+  }
+
+  .imageLeft,
+  .imageRight {
+    width: 100%;
+  }
+
+  .imageLeft div,
+  .imageRight div {
+    max-width: 100%;
+  }
+}

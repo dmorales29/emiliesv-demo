@@ -13,29 +13,6 @@
 }
 /* END COLORS */
 
-/* BOTÓN CTA*/
-.btn_cta {
-  background-color: var(--color-1);
-  border: 0;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.25s;
-}
-
-.btn_cta:hover {
-  background-color: var(--color-1-hover);
-}
-
-@media only screen and (max-width: 767px) {
-  .btn_cta {
-    margin: 0 auto;
-    display: block;
-  }
-}
-/* END BOTÓN CTA */
-
 /* OVERALL*/
 .prevent_scroll {
   overflow: hidden;

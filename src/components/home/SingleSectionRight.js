@@ -3,6 +3,7 @@ import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import SubCTAComponent from "./SubCTAComponent"
+import SquareImage from "./SquareImage"
 
 function SingleSectionRight() {
   const data = useStaticQuery(graphql`
@@ -55,22 +56,19 @@ function SingleSectionRight() {
       className={`${singleSectionStyles.mainSection} ${singleSectionStyles.rightFlexDirection}`}
     >
       <SubCTAComponent
-        btnCTA="Descubre"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
+        btnCTA="Descubre"
       />
       <div
         className={`${singleSectionStyles.photoContainer} ${singleSectionStyles.rightEnd}`}
       >
-        <div className={singleSectionStyles.image}>
-          <Img
-            className={singleSectionStyles.imageWrapper}
-            fluid={
-              data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
-                .childImageSharp.fluid
-            }
-          />
-          <span>Flats</span>
-        </div>
+        <SquareImage
+          data={
+            data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
+              .childImageSharp.fluid
+          }
+          titleSquare="Flats"
+        />
       </div>
       <Img
         className={`${singleSectionStyles.arrowDecoration} ${singleSectionStyles.rightArrowDecoration}`}
