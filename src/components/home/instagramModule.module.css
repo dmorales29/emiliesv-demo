@@ -1,0 +1,41 @@
+.container {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.a {
+  display: inline-flex;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--medium-gray-2);
+  margin: 0 0 25px 0;
+  transition: all 0.25s;
+}
+
+.a:hover {
+  color: var(--color-1);
+}
+
+.a span {
+  line-height: 20px;
+  padding: 0 0 0 5px;
+}
+
+.photosContainer {
+  display: flex;
+  font-size: 0;
+}
+
+.photosContainer img {
+  margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0;
+  }
+
+  .photosContainer a:nth-child(n + 5) {
+    display: none;
+  }
+}
