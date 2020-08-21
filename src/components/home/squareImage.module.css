@@ -4,10 +4,6 @@
   flex: 1 1 auto;
 }
 
-.image img {
-  margin: 0;
-}
-
 .image span {
   color: white;
   font-size: 72px;

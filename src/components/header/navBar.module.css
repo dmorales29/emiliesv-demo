@@ -1,0 +1,14 @@
+.li_item {
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.a_link {
+  text-decoration: none;
+  color: white;
+  transition: all 0.25s ease-in-out;
+}
+
+.a_link:hover {
+  color: var(--medium-gray-2);
+}

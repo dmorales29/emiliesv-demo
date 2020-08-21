@@ -5,15 +5,21 @@ import SingleSectionLeft from "../components/home/SingleSectionLeft"
 import SingleSectionRight from "../components/home/SingleSectionRight"
 import DoubleSection from "../components/home/DoubleSection"
 import InstagramModule from "../components/home/InstagramModule"
+import globalStyles from "../components/global.module.css"
+import Map from "../utils/Map"
 
 const IndexPage = () => (
   <>
     <SEO title="Home" />
-    <MainSection />
-    <SingleSectionLeft />
-    <SingleSectionRight />
-    <DoubleSection />
-    <InstagramModule />
+    <div className={globalStyles.containerInnerLayout}>
+      <MainSection />
+      <SingleSectionLeft />
+      <SingleSectionRight />
+      <DoubleSection />
+    </div>
+    <div>
+      <InstagramModule />
+    </div>
   </>
 )
 

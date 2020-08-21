@@ -13,7 +13,35 @@
 }
 /* END COLORS */
 
+/* LAYOUT */
+.containerLayout {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1366px;
+}
+
+.containerInnerLayout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  .containerInnerLayout {
+    padding: 0;
+  }
+}
+/* END LAYOUT */
+
 /* OVERALL*/
+p,
+ul,
+li,
+img,
+form {
+  margin: 0;
+}
+
 .prevent_scroll {
   overflow: hidden;
   height: 100vh;
@@ -27,3 +55,45 @@
   visibility: hidden;
 }
 /* END OVERALL*/
+
+/* FORMS STYLES */
+input {
+  padding: 10px;
+  border: 0;
+  width: 100%;
+  margin: 10px 0;
+}
+input:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  background-color: var(--color-1);
+  border: 0;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: all 0.25s;
+  cursor: pointer;
+  margin: 0;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-1-hover);
+}
+
+form label {
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+  input {
+    padding: 15px;
+  }
+
+  input[type="submit"] {
+    padding: 15px;
+  }
+}
+/* ENDFORMS STYLES */

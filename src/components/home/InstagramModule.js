@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import instagramModuleStyles from "./instagramModule.module.css"
-import { AiOutlineInstagram } from "react-icons/ai"
+import { FaInstagram } from "react-icons/fa"
 
 function InstagramModule() {
   function slimData(response) {
@@ -39,7 +39,7 @@ function InstagramModule() {
         className={instagramModuleStyles.a}
         target="_blank"
       >
-        <AiOutlineInstagram size="20px" />
+        <FaInstagram size="20px" />
         <span>emilie.sv</span>
       </a>
       <div className={instagramModuleStyles.photosContainer}>

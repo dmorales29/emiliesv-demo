@@ -8,10 +8,6 @@
   width: 445px;
 }
 
-.main_container_image img {
-  margin: 0;
-}
-
 .background_image {
   width: 155px;
   position: absolute !important;

@@ -41,10 +41,6 @@
   width: 200px;
 }
 
-.novedades_container_img img {
-  margin: 0;
-}
-
 .slider_controller {
   display: flex;
   padding: 20px 0 0 0;

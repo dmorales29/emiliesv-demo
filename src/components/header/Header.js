@@ -1,10 +1,10 @@
 import React, { useState, useLayoutEffect } from "react"
+import { Helmet } from "react-helmet"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import globalStyles from "../global.module.css"
 import headerStyles from "./header.module.css"
-import { Helmet } from "react-helmet"
+import Logo from "../../utils/Logo"
 
 const Header = () => {
   const [menuMobile, showMenuMobile] = useState(false)
@@ -45,13 +45,6 @@ const Header = () => {
             }
           }
         }
-        logo: file(relativePath: { eq: "emiliesv-logo.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     `
   )
@@ -66,13 +59,7 @@ const Header = () => {
         }}
       />
       <nav className={headerStyles.nav_container}>
-        <a className={headerStyles.a_link_img} href="/">
-          <Img
-            className={headerStyles.a_link.img}
-            fluid={data.logo.childImageSharp.fluid}
-            alt="Logo Emilie"
-          />
-        </a>
+        <Logo selectLogo="logo" className={headerStyles.logoClass} />
         <ul
           className={
             headerStyles.ul_container +
