@@ -42,6 +42,15 @@ form {
   margin: 0;
 }
 
+button {
+  padding: 0;
+  border: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
 .prevent_scroll {
   overflow: hidden;
   height: 100vh;
@@ -63,6 +72,7 @@ input {
   width: 100%;
   margin: 10px 0;
 }
+
 input:focus {
   outline: none;
 }
@@ -85,6 +95,7 @@ input[type="submit"]:hover {
 
 form label {
   text-transform: uppercase;
+  display: block;
 }
 
 @media only screen and (max-width: 767px) {

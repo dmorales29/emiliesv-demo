@@ -6,7 +6,6 @@ import SingleSectionRight from "../components/home/SingleSectionRight"
 import DoubleSection from "../components/home/DoubleSection"
 import InstagramModule from "../components/home/InstagramModule"
 import globalStyles from "../components/global.module.css"
-import Map from "../utils/Map"
 
 const IndexPage = () => (
   <>

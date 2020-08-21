@@ -1,8 +1,8 @@
-import React from "React"
+import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import navBarStyles from "./navBar.module.css"
 
-function NavBar(props) {
+function Navbar(props) {
   const data = useStaticQuery(
     graphql`
       query {
@@ -44,4 +44,4 @@ function NavBar(props) {
   return myMenu
 }
 
-export default NavBar
+export default Navbar

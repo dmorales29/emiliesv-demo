@@ -29,7 +29,6 @@ function Logo(props) {
           <Img fluid={data.logo.childImageSharp.fluid} alt="Logo Emilie" />
         </a>
       )
-      break
 
     case "logoBw":
       return (
@@ -37,7 +36,6 @@ function Logo(props) {
           <Img fluid={data.logoBw.childImageSharp.fluid} alt="Logo Emilie" />
         </a>
       )
-      break
 
     default:
       return "Warning: No logo selected!"

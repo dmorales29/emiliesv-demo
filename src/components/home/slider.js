@@ -112,7 +112,7 @@ function Slider() {
         {Object.keys(data.novedades.edges[0].node.acf).map(nameOfElement => (
           <a
             style={{ transform: `translateX(${x}%)` }}
-            href=""
+            href="/"
             key={nameOfElement}
             className={sliderStyles.wrapper_images}
           >
@@ -128,7 +128,7 @@ function Slider() {
         ))}
       </div>
       <div className={sliderStyles.slider_controller}>
-        <span
+        <button
           className={
             sliderStyles.icon + (x >= 0 ? " " + sliderStyles.opacity : "")
           }
@@ -139,8 +139,8 @@ function Slider() {
             size="30px"
             color="var(--medium-gray-2)"
           />
-        </span>
-        <span
+        </button>
+        <button
           className={
             sliderStyles.icon +
             (x <= -360 && window.innerWidth > 1023
@@ -156,7 +156,7 @@ function Slider() {
             size="30px"
             color="var(--medium-gray-2)"
           />
-        </span>
+        </button>
       </div>
     </div>
   )
