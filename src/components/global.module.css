@@ -16,7 +16,7 @@
 /* LAYOUT */
 .containerLayout {
   margin: 0 auto;
-  padding: 0;
+  padding: 80px 0 0 0;
   max-width: 1366px;
 }
 

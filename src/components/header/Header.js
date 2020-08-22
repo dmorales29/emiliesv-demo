@@ -50,7 +50,7 @@ const Header = () => {
   )
 
   return (
-    <header className={headerStyles.header}>
+    <header>
       <Helmet
         bodyAttributes={{
           class: `${

@@ -5,6 +5,8 @@ footer {
 .firstSection {
   display: flex;
   padding: 40px 25px 100px 25px;
+  margin: 0 auto;
+  max-width: 1366px;
 }
 
 .logoImage {
@@ -56,6 +58,8 @@ footer {
   padding: 25px;
   display: flex;
   justify-content: space-between;
+  max-width: 1366px;
+  margin: 0 auto;
 }
 
 .termsOfUse p {
