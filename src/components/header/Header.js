@@ -2,7 +2,6 @@ import React, { useState, useLayoutEffect } from "react"
 import { Helmet } from "react-helmet"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import globalStyles from "../global.module.css"
 import headerStyles from "./header.module.css"
 import Logo from "../../utils/Logo"
 
@@ -54,7 +53,7 @@ const Header = () => {
       <Helmet
         bodyAttributes={{
           class: `${
-            size.width <= 768 && menuMobile ? globalStyles.prevent_scroll : ""
+            size.width <= 768 && menuMobile ? headerStyles.preventScroll : ""
           }`,
         }}
       />
@@ -62,8 +61,7 @@ const Header = () => {
         <Logo selectLogo="logo" className={headerStyles.logoClass} />
         <ul
           className={
-            headerStyles.ul_container +
-            `${menuMobile ? " " + globalStyles.visible : ""}`
+            headerStyles.ul_container + `${menuMobile ? " visible" : ""}`
           }
         >
           <li className={headerStyles.li_item}>

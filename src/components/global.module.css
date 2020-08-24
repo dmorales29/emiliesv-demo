@@ -51,16 +51,11 @@ button:focus {
   outline: none;
 }
 
-.prevent_scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
-.visible {
+:global(.visible) {
   visibility: visible !important;
 }
 
-.not_visible {
+:global(.notVisible) {
   visibility: hidden;
 }
 /* END OVERALL*/

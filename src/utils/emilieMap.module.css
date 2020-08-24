@@ -1,0 +1,26 @@
+.leafletContainer {
+  width: 100%;
+  height: 300px;
+}
+
+.leafletPopup {
+  bottom: 30px !important;
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  text-align: center !important;
+}
+
+:global(.leaflet-container .leaflet-control-attribution) {
+  display: none;
+}
+
+:global(.leaflet-marker-pane) {
+  top: -12.5px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .leafletContainer {
+    height: 250px;
+  }
+}
