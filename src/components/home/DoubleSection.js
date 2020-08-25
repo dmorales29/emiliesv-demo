@@ -82,7 +82,7 @@ function DoubleSection() {
         </div>
       </div>
       <Img
-        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.rightPolkaDecoration}`}
+        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.doublePolkaDecoration}`}
         fluid={data.decorationPolka.edges[0].node.fluid}
       />
     </section>

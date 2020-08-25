@@ -74,6 +74,10 @@
   margin: 0 0 0 11%;
 }
 
+.rightFlexDirection .polkaDecoration {
+  left: 0%;
+}
+
 @media only screen and (max-width: 1024px) {
   .rightFlexDirection .arrowDecoration {
     margin: 0;
@@ -88,7 +92,8 @@
 /* END SINGLE SECTION RIGHT */
 
 /* DOUBLE SECTION */
-.rightPolkaDecoration {
+.doublePolkaDecoration {
   left: 0%;
+  top: 28px;
 }
 /* DOUBLE SECTION */
