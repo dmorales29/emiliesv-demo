@@ -1,8 +1,10 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import SquareImage from "./SquareImage"
 import MainCTABtn from "../buttons/MainCTABtn"
 import doubleSectionStyles from "./doubleSection.module.css"
+import singleSectionStyles from "./singleSection.module.css"
 
 function DoubleSection() {
   const data = useStaticQuery(graphql`
@@ -30,6 +32,17 @@ function DoubleSection() {
                 }
               }
               slogan_plataformas_flatfmors
+            }
+          }
+        }
+      }
+      decorationPolka: allImageSharp(
+        filter: { fluid: { originalName: { eq: "decoration-02.png" } } }
+      ) {
+        edges {
+          node {
+            fluid(jpegQuality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -68,6 +81,10 @@ function DoubleSection() {
           </div>
         </div>
       </div>
+      <Img
+        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.rightPolkaDecoration}`}
+        fluid={data.decorationPolka.edges[0].node.fluid}
+      />
     </section>
   )
 }

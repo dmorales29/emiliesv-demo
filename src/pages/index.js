@@ -8,6 +8,7 @@ import InstagramModule from "../components/home/InstagramModule"
 import globalStyles from "../components/global.module.css"
 import { Helmet } from "react-helmet"
 import loadable from "@loadable/component"
+import Banner970x90 from "../utils/Banne970x90"
 const EmilieMap = loadable(() => import("../utils/EmilieMap"))
 
 const IndexPage = () => {
@@ -25,6 +26,7 @@ const IndexPage = () => {
         </Helmet>
         <MainSection />
         <SingleSectionLeft />
+        <Banner970x90 />
         <SingleSectionRight />
         <DoubleSection />
       </div>
