@@ -1,9 +1,7 @@
 import React from "react"
 import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import SubCTAComponent from "./SubCTAComponent"
-import SquareImage from "./SquareImage"
+import SingleModule from "./SingleModule"
 
 function SingleSectionLeft() {
   const data = useStaticQuery(graphql`
@@ -26,53 +24,21 @@ function SingleSectionLeft() {
           }
         }
       }
-      decorationArrow: allImageSharp(
-        filter: { fluid: { originalName: { eq: "arrow.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      decorationPolka: allImageSharp(
-        filter: { fluid: { originalName: { eq: "decoration-02.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
     }
   `)
 
   return (
-    <section className={singleSectionStyles.mainSection}>
-      <div className={singleSectionStyles.photoContainer}>
-        <SquareImage
-          data={
-            data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
-              .childImageSharp.fluid
-          }
-          titleSquare="Sandalias"
-        />
-      </div>
-      <SubCTAComponent
+    <section
+      className={`${singleSectionStyles.mainSection} ${singleSectionStyles.leftFlexDirection}`}
+    >
+      <SingleModule
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_sandalias}
         btnCTA="Encuentra el ideal"
-      />
-      <Img
-        className={singleSectionStyles.arrowDecoration}
-        fluid={data.decorationArrow.edges[0].node.fluid}
-      />
-      <Img
-        className={singleSectionStyles.polkaDecoration}
-        fluid={data.decorationPolka.edges[0].node.fluid}
+        SquareImageData={
+          data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
+            .childImageSharp.fluid
+        }
+        titleSquare="Sandalias"
       />
     </section>
   )

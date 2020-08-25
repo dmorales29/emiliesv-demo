@@ -1,9 +1,7 @@
 import React from "react"
 import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import SubCTAComponent from "./SubCTAComponent"
-import SquareImage from "./SquareImage"
+import SingleModule from "./SingleModule"
 
 function SingleSectionRight() {
   const data = useStaticQuery(graphql`
@@ -26,28 +24,6 @@ function SingleSectionRight() {
           }
         }
       }
-      decorationArrow: allImageSharp(
-        filter: { fluid: { originalName: { eq: "arrow.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      decorationPolka: allImageSharp(
-        filter: { fluid: { originalName: { eq: "decoration-02.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
     }
   `)
 
@@ -55,28 +31,14 @@ function SingleSectionRight() {
     <section
       className={`${singleSectionStyles.mainSection} ${singleSectionStyles.rightFlexDirection}`}
     >
-      <SubCTAComponent
+      <SingleModule
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
         btnCTA="Descubre"
-      />
-      <div
-        className={`${singleSectionStyles.photoContainer} ${singleSectionStyles.rightEnd}`}
-      >
-        <SquareImage
-          data={
-            data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
-              .childImageSharp.fluid
-          }
-          titleSquare="Flats"
-        />
-      </div>
-      <Img
-        className={`${singleSectionStyles.arrowDecoration} ${singleSectionStyles.rightArrowDecoration}`}
-        fluid={data.decorationArrow.edges[0].node.fluid}
-      />
-      <Img
-        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.rightPolkaDecoration}`}
-        fluid={data.decorationPolka.edges[0].node.fluid}
+        SquareImageData={
+          data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
+            .childImageSharp.fluid
+        }
+        titleSquare="Flats"
       />
     </section>
   )
