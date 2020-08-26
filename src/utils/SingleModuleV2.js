@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import singleSectionStyles from "./singleSection.module.css"
+import singleSectionStyles from "../components/home/singleSection.module.css"
 import Img from "gatsby-image"
-import SubCTAComponent from "./SubCTAComponent"
-import SquareImage from "../../utils/SquareImage"
+import SquareImage from "./SquareImage"
+import subCTAComponentStyles from "../components/home/subCTAComponent.module.css"
 
 function SingleSectionRight(props) {
   const data = useStaticQuery(graphql`
@@ -41,7 +41,9 @@ function SingleSectionRight(props) {
           : singleSectionStyles.rightFlexDirection
       }
     >
-      <SubCTAComponent titleData={props.titleData} btnCTA={props.btnCTA} />
+      <div className={subCTAComponentStyles.header_container}>
+        <h1>{props.titleData}</h1>
+      </div>
       <div className={`${singleSectionStyles.photoContainer}`}>
         <SquareImage
           data={props.SquareImageData}

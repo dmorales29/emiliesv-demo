@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import SquareImage from "./SquareImage"
+import SquareImage from "../../utils/SquareImage"
 import MainCTABtn from "../buttons/MainCTABtn"
 import doubleSectionStyles from "./doubleSection.module.css"
 import singleSectionStyles from "./singleSection.module.css"
@@ -52,9 +52,9 @@ function DoubleSection() {
 
   return (
     <section className={doubleSectionStyles.mainSection}>
-      <h2 className={doubleSectionStyles.h2}>
+      <h1>
         {data.allWordpressPage.edges[0].node.acf.slogan_plataformas_flatfmors}
-      </h2>
+      </h1>
       <div className={doubleSectionStyles.imagesContainer}>
         <div className={doubleSectionStyles.imageLeft}>
           <div>

@@ -12,7 +12,6 @@
 .slider_container h2 {
   text-transform: uppercase;
   padding: 0 0 20px 0;
-  margin: 0;
 }
 
 .novedades_container {
@@ -72,10 +71,6 @@
 }
 
 @media only screen and (max-width: 1023px) {
-  .slider_container h2 {
-    font-size: 16px;
-  }
-
   .novedades_container {
     width: 440px;
   }

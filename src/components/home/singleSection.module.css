@@ -1,6 +1,5 @@
 .mainSection {
   padding: 100px 0;
-  display: flex;
   position: relative;
 }
 
@@ -33,7 +32,6 @@
 
 @media only screen and (max-width: 767px) {
   .mainSection {
-    flex-direction: column;
     padding: 0;
   }
 
@@ -52,6 +50,7 @@
 
 /* SINGLE SECTION LEFT */
 .leftFlexDirection {
+  display: flex;
   flex-direction: row-reverse;
 }
 
@@ -63,6 +62,10 @@
 /* END SINGLE SECTION LEFT */
 
 /* SINGLE SECTION RIGHT */
+.rightFlexDirection {
+  display: flex;
+}
+
 .rightFlexDirection .photoContainer {
   display: flex;
   justify-content: flex-end;

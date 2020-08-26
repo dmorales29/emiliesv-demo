@@ -2,9 +2,9 @@
   padding-top: 130px;
 }
 
-.h1 {
+.header_container h1 {
   text-transform: uppercase;
-  font-size: 36px;
+  text-align: left;
   max-width: 400px;
   border-bottom: solid 1px;
   padding: 0 0 20px 0;
@@ -16,8 +16,7 @@
     padding-top: 90px;
   }
 
-  .h1 {
-    font-size: 24px;
+  .header_container h1 {
     max-width: 260px;
   }
 }
@@ -31,7 +30,8 @@
     text-align: center;
   }
 
-  .h1 {
+  .header_container h1 {
+    font-size: 24px;
     max-width: 100%;
     color: white;
     text-align: center;

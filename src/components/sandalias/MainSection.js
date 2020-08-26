@@ -1,9 +1,10 @@
 import React from "react"
-import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
-import SingleModule from "./SingleModule"
+import SingleModuleV2 from "../../utils/SingleModuleV2"
+import singleSectionStyles from "../home/singleSection.module.css"
+import mainSectionStyles from "./mainSection.module.css"
 
-function SingleSectionLeft() {
+function MainSection() {
   const data = useStaticQuery(graphql`
     query {
       allWordpressPage(filter: { slug: { eq: "home" } }) {
@@ -28,11 +29,12 @@ function SingleSectionLeft() {
   `)
 
   return (
-    <section className={singleSectionStyles.mainSection}>
-      <SingleModule
+    <section
+      className={`${singleSectionStyles.mainSection} ${mainSectionStyles.mainSection}`}
+    >
+      <SingleModuleV2
         selectSide="left"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_sandalias}
-        btnCTA="Encuentra el ideal"
         SquareImageData={
           data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile
             .childImageSharp.fluid
@@ -43,4 +45,4 @@ function SingleSectionLeft() {
   )
 }
 
-export default SingleSectionLeft
+export default MainSection

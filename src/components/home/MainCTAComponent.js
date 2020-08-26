@@ -5,7 +5,7 @@ import mainCTAComponentStyles from "./mainCTAComponent.module.css"
 function MainCTAComponent(props) {
   return (
     <div className={mainCTAComponentStyles.header_container}>
-      <h1 className={mainCTAComponentStyles.h1}>{props.titleData}</h1>
+      <h1>{props.titleData}</h1>
       <MainCTABtn btnCTA="Nuevos estilos" />
     </div>
   )

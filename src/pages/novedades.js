@@ -1,10 +1,11 @@
 import React from "react"
 import SEO from "../components/seo"
+import MainSection from "../components/novedades/MainSection"
 
 const Novedades = () => (
   <>
-    <SEO title="Home" />
-    <h1>Novedades Gatsby</h1>
+    <SEO title="Novedades" />
+    <MainSection />
   </>
 )
 
