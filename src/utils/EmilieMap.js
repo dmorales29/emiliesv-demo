@@ -22,24 +22,26 @@ function EmilieMap() {
           crossorigin=""
         />
       </Helmet>
-      <Map
-        center={position}
-        zoom={16}
-        className={emilieMapStyles.leafletContainer}
-      >
-        <TileLayer
+      <section className={emilieMapStyles.mapContainer}>
+        <Map
+          center={position}
+          zoom={16}
           className={emilieMapStyles.leafletContainer}
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={position} icon={icon}>
-          <Popup className={emilieMapStyles.leafletPopup}>
-            <strong>Emilie</strong>
-            <br />
-            Plaza Mango - Antiguo Cuscatlán
-          </Popup>
-        </Marker>
-      </Map>
+        >
+          <TileLayer
+            className={emilieMapStyles.leafletContainer}
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={position} icon={icon}>
+            <Popup className={emilieMapStyles.leafletPopup}>
+              <strong>Emilie</strong>
+              <br />
+              Plaza Mango - Antiguo Cuscatlán
+            </Popup>
+          </Marker>
+        </Map>
+      </section>
     </>
   )
 }

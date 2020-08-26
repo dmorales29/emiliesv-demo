@@ -1,3 +1,7 @@
+.mapContainer {
+  margin: 0 -25px;
+}
+
 .leafletContainer {
   width: 100%;
   height: 300px;
@@ -19,7 +23,17 @@
   top: -12.5px !important;
 }
 
+@media only screen and (min-width: 1367px) {
+  .mapContainer {
+    margin: 0;
+  }
+}
+
 @media only screen and (max-width: 767px) {
+  .mapContainer {
+    margin: 0;
+  }
+
   .leafletContainer {
     height: 250px;
   }
