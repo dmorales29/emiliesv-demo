@@ -1,7 +1,3 @@
-require("dotenv").config({
-  path: `.env.GATSBY_CONCURRENT_DOWNLOAD`,
-})
-
 // require .env.development or .env.production
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -167,5 +163,44 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: "@pasdo501/gatsby-source-woocommerce",
+      options: {
+        // Base URL of Wordpress site
+        api: "emiliesv.local",
+
+        // set to false to not see verbose output during build
+        // default: true
+        verbose: true,
+
+        // true if using https. otherwise false.
+        https: false,
+        api_keys: {
+          consumer_key: process.env.CONSUMER_KEY,
+          consumer_secret: process.env.CONSUMER_SECRET,
+        },
+        // Array of strings with fields you'd like to create nodes for...
+        fields: ["products", "products/categories"],
+        // Send the API keys as query string parameters instead of using the authorization header
+        // OPTIONAL: defaults to false
+        //query_string_auth: false,
+        // Version of the woocommerce API to use
+        // OPTIONAL: defaults to 'wc/v3'
+        //api_version: "wc/v3",
+        // OPTIONAL: How many results to retrieve *per request*
+        //per_page: 100,
+        // OPTIONAL: Custom WP REST API url prefix, only needed if not using
+        // the default wp-json prefix.
+        //wpAPIPrefix: "wp-rest",
+        // OPTIONAL: Support for URLs with ports, e.g. 8080; defaults to no port
+        //port: "8080",
+        // OPTIONAL: Encoding; default to 'utf8'
+        //encoding: "utf8",
+        // OPTIONAL: Custom Axios config (see https://github.com/axios/axios) - note that this can override other options.
+        //axios_config: {
+        // Axios config options
+        //},
+      },
+    },
   ],
 }

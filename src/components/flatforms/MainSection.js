@@ -41,7 +41,7 @@ function MainSection() {
           data.allWordpressPage.edges[0].node.acf.imagen_flatforms.localFile
             .childImageSharp.fluid
         }
-        titleSquare="Flats"
+        titleSquare="Flatforms"
       />
     </section>
   )
