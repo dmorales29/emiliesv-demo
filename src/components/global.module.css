@@ -16,7 +16,8 @@
 /* LAYOUT */
 .containerLayout {
   margin: 0 auto;
-  max-width: 1366px;
+  max-width: 1110px;
+  /* max-width: 1366px;*/
   padding: 80px 25px 0 25px;
 }
 
@@ -78,6 +79,14 @@ button:focus {
 
 :global(.notVisible) {
   visibility: hidden;
+}
+
+:global(.show) {
+  display: block;
+}
+
+:global(.hide) {
+  display: none;
 }
 /* END OVERALL*/
 
