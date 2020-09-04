@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa"
 
 function InstagramModule() {
   const [iGData, setIGData] = useState([])
-
+  //Revisar que iGData es undefined cuando no hay internet
   useEffect(() => {
     const slimData = response => {
       return response.data.user.edge_owner_to_timeline_media.edges.map(

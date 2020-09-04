@@ -15,9 +15,13 @@ function Slider() {
   //Cuando se hace resize y desaparece un slide sale disable la flecha
 
   const goLeft = () => {
-    setX(x + 120)
+    if (window.innerWidth < 768) {
+      setX(x + 100)
+    } else {
+      setX(x + 120)
+    }
 
-    if (x === 0) {
+    if (x >= 0) {
       setX(0)
     }
   }
@@ -33,72 +37,28 @@ function Slider() {
       setX(0)
     } else if (x <= -480 && window.innerWidth <= 1023) {
       setX(0)
-    } else if (x <= -960 && window.innerWidth < 768) {
-      setX(0)
     }
   }
 
   const data = useStaticQuery(graphql`
     query {
-      novedades: allWordpressPage(filter: { slug: { eq: "novedades" } }) {
+      allWcProducts(
+        filter: { categories: { elemMatch: { name: { eq: "novedades" } } } }
+        sort: { fields: wordpress_id, order: DESC }
+        limit: 6
+      ) {
         edges {
           node {
-            acf {
-              imagen_novedad_1 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              imagen_novedad_2 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              imagen_novedad_3 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              imagen_novedad_4 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              imagen_novedad_5 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              imagen_novedad_6 {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(jpegQuality: 100, maxWidth: 200, maxHeight: 142) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }
             }
+            wordpress_id
           }
         }
       }
@@ -109,19 +69,18 @@ function Slider() {
     <div className={sliderStyles.slider_container}>
       <h2>Nuevos estilos</h2>
       <div className={sliderStyles.novedades_container}>
-        {Object.keys(data.novedades.edges[0].node.acf).map(nameOfElement => (
+        {data.allWcProducts.edges.map(nameOfElement => (
           <a
             style={{ transform: `translateX(${x}%)` }}
             href="/"
-            key={nameOfElement}
+            key={nameOfElement.node.wordpress_id}
             className={sliderStyles.wrapper_images}
           >
             <span className={sliderStyles.new_badge}>New</span>
             <Img
               className={sliderStyles.novedades_container_img}
               fluid={
-                data.novedades.edges[0].node.acf[nameOfElement].localFile
-                  .childImageSharp.fluid
+                nameOfElement.node.images[0].localFile.childImageSharp.fluid
               }
             />
           </a>

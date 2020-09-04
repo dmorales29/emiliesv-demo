@@ -8,7 +8,8 @@ function ProductSection() {
     query {
       allWcProducts(
         filter: { categories: { elemMatch: { name: { eq: "novedades" } } } }
-        sort: { fields: date_created, order: DESC }
+        sort: { fields: wordpress_id, order: DESC }
+        limit: 6
       ) {
         edges {
           node {
@@ -17,16 +18,16 @@ function ProductSection() {
               name
             }
             price
-            date_created
             images {
               localFile {
                 childImageSharp {
-                  fluid(jpegQuality: 100) {
+                  fluid(jpegQuality: 100, maxWidth: 350, maxHeight: 250) {
                     ...GatsbyImageSharpFluid
                   }
                 }
               }
             }
+            wordpress_id
           }
         }
       }
@@ -40,6 +41,7 @@ function ProductSection() {
       <div className={productSectionStyles.productsContainer}>
         {data.allWcProducts.edges.map(element => (
           <ProductV1
+            key={element.node.wordpress_id}
             productTitle={element.node.name}
             fluid={element.node.images[0].localFile.childImageSharp.fluid}
             price={element.node.price}
