@@ -47,6 +47,19 @@
   transform: translate(50%, 50%);
 }
 
+.polkaDecoration {
+  position: absolute !important;
+  left: 0%;
+  right: 0%;
+  width: 29%;
+  height: 58%;
+  top: 28px;
+  bottom: 32%;
+  max-width: 354px;
+  max-height: 115px;
+  z-index: -1;
+}
+
 @media only screen and (max-width: 1023px) {
   .mainSection h1 {
     max-width: 260px;
@@ -83,5 +96,9 @@
   .imageLeft div,
   .imageRight div {
     max-width: 100%;
+  }
+
+  .polkaDecoration {
+    display: none;
   }
 }

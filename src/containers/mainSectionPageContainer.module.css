@@ -1,5 +1,6 @@
 .mainSection {
   padding: 0 0 100px 0;
+  position: relative;
 }
 
 @media only screen and (max-width: 768px) {

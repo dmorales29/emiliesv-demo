@@ -1,7 +1,6 @@
 import React from "react"
-import singleSectionStyles from "./singleSection.module.css"
 import { graphql, useStaticQuery } from "gatsby"
-import SingleModule from "./SingleModule"
+import SingleModule from "../../containers/SingleModule"
 
 function SingleSectionRight() {
   const data = useStaticQuery(graphql`
@@ -24,11 +23,18 @@ function SingleSectionRight() {
           }
         }
       }
+      title: allWordpressPage(filter: { menu_order: { eq: 3 } }) {
+        edges {
+          node {
+            title
+          }
+        }
+      }
     }
   `)
 
   return (
-    <section className={singleSectionStyles.mainSection}>
+    <section>
       <SingleModule
         selectSide="right"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
@@ -37,7 +43,7 @@ function SingleSectionRight() {
           data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
             .childImageSharp.fluid
         }
-        titleSquare="Flats"
+        titleSquare={data.title.edges[0].node.title}
       />
     </section>
   )

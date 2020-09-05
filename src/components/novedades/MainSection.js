@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import SingleModuleV2 from "../../utils/SingleModuleV2"
-import singleSectionStyles from "../home/singleSection.module.css"
-import mainSectionStyles from "./mainSection.module.css"
+import SingleModuleV2 from "../../containers/SingleModuleV2"
+import MainSectionPageContainer from "../../containers/MainSectionPageContainer"
 
 function MainSection() {
   const data = useStaticQuery(graphql`
@@ -30,9 +29,7 @@ function MainSection() {
   `)
 
   return (
-    <section
-      className={`${singleSectionStyles.mainSection} ${mainSectionStyles.mainSection}`}
-    >
+    <MainSectionPageContainer>
       <SingleModuleV2
         selectSide="right"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_principal}
@@ -42,7 +39,7 @@ function MainSection() {
         }
         titleSquare={data.allWordpressPage.edges[0].node.title}
       />
-    </section>
+    </MainSectionPageContainer>
   )
 }
 

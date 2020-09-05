@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import singleSectionStyles from "./singleSection.module.css"
+import singleModuleStyles from "./singleModule.module.css"
 import Img from "gatsby-image"
-import SubCTAComponent from "./SubCTAComponent"
-import SquareImage from "../../utils/SquareImage"
+import TitleCTA from "./TitleCTA"
+import SquareImage from "./SquareImage"
 
 function SingleSectionRight(props) {
   const data = useStaticQuery(graphql`
@@ -35,25 +35,25 @@ function SingleSectionRight(props) {
 
   return (
     <div
-      className={
+      className={`${
         props.selectSide === "left"
-          ? singleSectionStyles.leftFlexDirection
-          : singleSectionStyles.rightFlexDirection
-      }
+          ? singleModuleStyles.leftFlexDirection
+          : singleModuleStyles.rightFlexDirection
+      } ${singleModuleStyles.mainSection}`}
     >
-      <SubCTAComponent titleData={props.titleData} btnCTA={props.btnCTA} />
-      <div className={`${singleSectionStyles.photoContainer}`}>
+      <TitleCTA titleData={props.titleData} btnCTA={props.btnCTA} />
+      <div className={`${singleModuleStyles.photoContainer}`}>
         <SquareImage
           data={props.SquareImageData}
           titleSquare={props.titleSquare}
         />
       </div>
       <Img
-        className={`${singleSectionStyles.arrowDecoration}`}
+        className={`${singleModuleStyles.arrowDecoration}`}
         fluid={data.decorationArrow.edges[0].node.fluid}
       />
       <Img
-        className={`${singleSectionStyles.polkaDecoration}`}
+        className={`${singleModuleStyles.polkaDecoration}`}
         fluid={data.decorationPolka.edges[0].node.fluid}
       />
     </div>

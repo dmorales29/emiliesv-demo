@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import SquareImage from "../../utils/SquareImage"
+import SquareImage from "../../containers/SquareImage"
 import MainCTABtn from "../buttons/MainCTABtn"
 import doubleSectionStyles from "./doubleSection.module.css"
-import singleSectionStyles from "./singleSection.module.css"
 
 function DoubleSection() {
   const data = useStaticQuery(graphql`
@@ -47,6 +46,20 @@ function DoubleSection() {
           }
         }
       }
+      titlePlataformas: allWordpressPage(filter: { menu_order: { eq: 4 } }) {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+      titleFlatforms: allWordpressPage(filter: { menu_order: { eq: 5 } }) {
+        edges {
+          node {
+            title
+          }
+        }
+      }
     }
   `)
 
@@ -63,7 +76,7 @@ function DoubleSection() {
                 data.allWordpressPage.edges[0].node.acf.imagen_plataformas
                   .localFile.childImageSharp.fluid
               }
-              titleSquare="Plataformas"
+              titleSquare={data.titlePlataformas.edges[0].node.title}
             />
             <MainCTABtn btnCTA="Descubre" />
           </div>
@@ -75,14 +88,14 @@ function DoubleSection() {
                 data.allWordpressPage.edges[0].node.acf.imagen_flatforms
                   .localFile.childImageSharp.fluid
               }
-              titleSquare="Flatforms"
+              titleSquare={data.titleFlatforms.edges[0].node.title}
             />
             <MainCTABtn btnCTA="Descubre" />
           </div>
         </div>
       </div>
       <Img
-        className={`${singleSectionStyles.polkaDecoration} ${singleSectionStyles.doublePolkaDecoration}`}
+        className={doubleSectionStyles.polkaDecoration}
         fluid={data.decorationPolka.edges[0].node.fluid}
       />
     </section>
