@@ -7,9 +7,8 @@ function ProductSection() {
   const data = useStaticQuery(graphql`
     query {
       allWcProducts(
-        filter: { categories: { elemMatch: { name: { eq: "novedades" } } } }
+        filter: { categories: { elemMatch: { name: { eq: "sandalias" } } } }
         sort: { fields: wordpress_id, order: DESC }
-        limit: 6
       ) {
         edges {
           node {
@@ -28,7 +27,7 @@ function ProductSection() {
           }
         }
       }
-      allWordpressPage(filter: { menu_order: { eq: 1 } }) {
+      allWordpressPage(filter: { menu_order: { eq: 2 } }) {
         edges {
           node {
             title

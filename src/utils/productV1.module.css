@@ -1,8 +1,12 @@
 .container {
   max-width: 375px;
   width: 100%;
+  margin: 0 25px 40px 0;
+  flex-basis: calc(25% - 18.74px);
+}
+
+.container:nth-of-type(4n) {
   margin: 0 0 40px 0;
-  flex-basis: calc(33.33% - 17px);
 }
 
 .container a {
@@ -81,10 +85,18 @@
   .container {
     flex-basis: calc(50% - 12.5px);
   }
+
+  .container:nth-of-type(2n) {
+    margin: 0 0 40px 0;
+  }
 }
 
 @media only screen and (max-width: 425px) {
   .container {
     flex-basis: 100%;
+  }
+
+  .container:nth-of-type(n) {
+    margin: 0 0 40px 0;
   }
 }
