@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import { FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa"
+
 import productV1Styles from "./productV1.module.css"
 
 function ProductV1(props) {
@@ -20,6 +21,7 @@ function ProductV1(props) {
   return (
     <div className={productV1Styles.container}>
       <a href="/">
+        {props.isNew}
         <Img className={productV1Styles.image} fluid={props.fluid} />
       </a>
       <div className={productV1Styles.productActions}>

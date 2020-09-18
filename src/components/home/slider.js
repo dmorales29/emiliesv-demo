@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import sliderStyles from "./slider.module.css"
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
 } from "react-icons/io"
-import { useState } from "react"
+
+import sliderStyles from "./slider.module.css"
+import BadgeNew from "../../utils/BadgeNew"
 
 function Slider() {
   const [x, setX] = useState(0)
@@ -76,7 +77,7 @@ function Slider() {
             key={nameOfElement.node.wordpress_id}
             className={sliderStyles.wrapper_images}
           >
-            <span className={sliderStyles.new_badge}>New</span>
+            <BadgeNew />
             <Img
               className={sliderStyles.novedades_container_img}
               fluid={

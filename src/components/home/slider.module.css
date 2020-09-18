@@ -26,16 +26,6 @@
   transition: all 0.5s ease;
 }
 
-.new_badge {
-  position: absolute;
-  background-color: var(--color-1);
-  color: white;
-  padding: 2px 10px;
-  z-index: 1;
-  right: 10px;
-  top: 10px;
-}
-
 .novedades_container_img {
   width: 200px;
 }

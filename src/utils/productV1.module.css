@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 25px 40px 0;
   flex-basis: calc(25% - 18.74px);
+  position: relative;
 }
 
 .container:nth-of-type(4n) {

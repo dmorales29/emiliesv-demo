@@ -1,7 +1,9 @@
 import React from "react"
-import ProductV1 from "../../utils/ProductV1"
 import { useStaticQuery, graphql } from "gatsby"
+
+import ProductV1 from "../../utils/ProductV1"
 import ProductSectionContainer from "../../containers/ProductSectionContainer"
+import BadgeNew from "../../utils/BadgeNew"
 
 function ProductSection() {
   const data = useStaticQuery(graphql`
@@ -25,6 +27,9 @@ function ProductSection() {
               }
             }
             wordpress_id
+            categories {
+              name
+            }
           }
         }
       }
@@ -40,12 +45,21 @@ function ProductSection() {
   return (
     <ProductSectionContainer title={data.allWordpressPage.edges[0].node.title}>
       {data.allWcProducts.edges.map(element => (
-        <ProductV1
-          key={element.node.wordpress_id}
-          productTitle={element.node.name}
-          fluid={element.node.images[0].localFile.childImageSharp.fluid}
-          price={element.node.price}
-        />
+        <>
+          <ProductV1
+            key={element.node.wordpress_id}
+            productTitle={element.node.name}
+            fluid={element.node.images[0].localFile.childImageSharp.fluid}
+            price={element.node.price}
+            isNew={
+              element.node.categories[0].name === "novedades" ? (
+                <BadgeNew />
+              ) : (
+                <span>asd</span>
+              )
+            }
+          />
+        </>
       ))}
     </ProductSectionContainer>
   )
