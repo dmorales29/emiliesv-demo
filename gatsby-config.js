@@ -6,7 +6,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Emilie`,
-    description: `Calidad y comfort`,
+    description: `Calidad y confort`,
     author: `Emilie`,
   },
   plugins: [
@@ -39,10 +39,9 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'demo.wp-api.org' or 'www.example-site.com'
          */
-        //baseUrl: "localhost/emiliesv/",
-        baseUrl: "emiliesv.local",
+        baseUrl: "emiliesv.com/backend-admin",
         // The protocol. This can be http or https.
-        protocol: "http",
+        protocol: "https",
         // The rest api route prefix that your WordPress site is using.
         // Sometimes this is modified by WordPress plugins.
         // If not set, it uses the default of "wp-json"
@@ -71,7 +70,6 @@ module.exports = {
           htaccess_user: "your-htaccess-username",
           htaccess_pass: "your-htaccess-password",
           htaccess_sendImmediately: false,
-
           // If hostingWPCOM is true then you will need to communicate with wordpress.com API
           // in order to do that you need to create an app (of type Web) at https://developer.wordpress.com/apps/
           // then add your clientId, clientSecret, username, and password here
@@ -82,7 +80,6 @@ module.exports = {
           wpcom_app_clientId: "54793",
           wpcom_user: "gatsbyjswpexample@gmail.com",
           wpcom_pass: process.env.WORDPRESS_PASSWORD,
-
           // If you use "JWT Authentication for WP REST API" (https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
           // or (https://github.com/jonathan-dejong/simple-jwt-authentication) requires jwt_base_path, path can be found in WordPress wp-api.
           // plugin, you can specify user and password to obtain access token and use authenticated requests against WordPress REST API.
@@ -167,14 +164,14 @@ module.exports = {
       resolve: "@pasdo501/gatsby-source-woocommerce",
       options: {
         // Base URL of Wordpress site
-        api: "emiliesv.local",
+        api: "emiliesv.com/backend-admin",
 
         // set to false to not see verbose output during build
         // default: true
         verbose: true,
 
         // true if using https. otherwise false.
-        https: false,
+        https: true,
         api_keys: {
           consumer_key: process.env.CONSUMER_KEY,
           consumer_secret: process.env.CONSUMER_SECRET,

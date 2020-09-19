@@ -42,6 +42,7 @@ function ProductSection() {
       }
     }
   `)
+
   return (
     <ProductSectionContainer title={data.allWordpressPage.edges[0].node.title}>
       {data.allWcProducts.edges.map(element => (
