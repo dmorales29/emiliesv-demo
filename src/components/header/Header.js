@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
@@ -18,7 +18,7 @@ const Header = () => {
   //a otra pestaña hay unflasheo de transición del home
   //(desaparece menú, muestra home y luego se va a la pestaña asignada)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function handleresize() {
       setResize({
         width: window.innerWidth,

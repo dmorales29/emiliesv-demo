@@ -46,21 +46,16 @@ function ProductSection() {
   return (
     <ProductSectionContainer title={data.allWordpressPage.edges[0].node.title}>
       {data.allWcProducts.edges.map(element => (
-        <>
-          <ProductV1
-            key={element.node.wordpress_id}
-            productTitle={element.node.name}
-            fluid={element.node.images[0].localFile.childImageSharp.fluid}
-            price={element.node.price}
-            isNew={
-              element.node.categories[0].name === "novedades" ? (
-                <BadgeNew />
-              ) : (
-                <span>asd</span>
-              )
-            }
-          />
-        </>
+        <ProductV1
+          key={element.node.wordpress_id}
+          productTitle={element.node.name}
+          fluid={element.node.images[0].localFile.childImageSharp.fluid}
+          price={element.node.price}
+          aprice={element.node.price}
+          isNew={
+            element.node.categories[0].name === "novedades" && <BadgeNew />
+          }
+        />
       ))}
     </ProductSectionContainer>
   )

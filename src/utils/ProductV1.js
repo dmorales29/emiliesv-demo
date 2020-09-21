@@ -4,7 +4,7 @@ import { FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa"
 
 import productV1Styles from "./productV1.module.css"
 
-function ProductV1(props) {
+const ProductV1 = ({ isNew, fluid, productTitle, price }) => {
   function handleClick(e) {
     const favorite = e.currentTarget.querySelector("button .favorite")
     const notFavorite = e.currentTarget.querySelector("button .notFavorite")
@@ -18,18 +18,26 @@ function ProductV1(props) {
     }
   }
 
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  })
+
   return (
     <div className={productV1Styles.container}>
       <a href="/">
-        {props.isNew}
-        <Img className={productV1Styles.image} fluid={props.fluid} />
+        {isNew}
+        <Img className={productV1Styles.image} fluid={fluid} />
       </a>
       <div className={productV1Styles.productActions}>
         <div>
           <a href="/" className={productV1Styles.productTitle}>
-            <span>{props.productTitle}</span>
+            <span>{productTitle}</span>
           </a>
-          <span className={productV1Styles.productPrice}>$ {props.price}</span>
+          <span className={productV1Styles.productPrice}>
+            {formatter.format(price)}
+          </span>
         </div>
         <div className={productV1Styles.productButtons}>
           <button

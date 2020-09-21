@@ -1,0 +1,42 @@
+.h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 25px 0;
+  width: fit-content;
+  margin: 0 auto;
+  border-bottom: solid 1px;
+}
+
+.Info {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.Strong {
+  text-transform: uppercase;
+}
+
+.InfoWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.InfoWrapper .a {
+  text-decoration: none;
+  color: var(--medium-gray-2);
+  transition: all 0.25s;
+}
+
+.InfoWrapper .a:hover {
+  color: var(--color-1);
+}
+
+.InfoWrapper p {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.InfoWrapper p svg {
+  margin: 0 5px 0 0;
+}
