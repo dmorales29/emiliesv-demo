@@ -54,15 +54,6 @@ footer {
   text-transform: uppercase;
 }
 
-.contactInfo .PhoneContainer {
-  display: flex;
-  vertical-align: middle;
-}
-
-.contactInfo .PhoneContainer svg {
-  margin: 0 10px 0 0;
-}
-
 .secondSection {
   padding: 25px;
   display: flex;

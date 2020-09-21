@@ -8,7 +8,6 @@ import {
   FaWhatsapp,
   FaRegEnvelope,
   FaInstagram,
-  FaPhoneAlt,
 } from "react-icons/fa"
 
 function Footer() {
@@ -57,10 +56,10 @@ function Footer() {
                 Lunes a Sábado 10:00 AM - 6:00 PM
                 <br />
                 <br />
-                <span className={footerStyles.PhoneContainer}>
-                  <FaPhoneAlt size="20px" />
-                  2522-0534
-                </span>
+                <span>Oficina</span>
+                <br />
+                2522-0534
+                <br />
                 <br />
                 <span>Envíos a todo El Salvador</span>
               </p>

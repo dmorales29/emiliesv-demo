@@ -31,12 +31,12 @@
   color: var(--color-1);
 }
 
-.InfoWrapper p {
+.InfoWrapper span {
   display: flex;
   align-items: center;
   padding: 0 10px;
 }
 
-.InfoWrapper p svg {
+.InfoWrapper span svg {
   margin: 0 5px 0 0;
 }
