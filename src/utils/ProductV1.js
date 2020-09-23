@@ -1,10 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 import { FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa"
 
 import productV1Styles from "./productV1.module.css"
 
-const ProductV1 = ({ isNew, fluid, productTitle, price }) => {
+const ProductV1 = ({ isNew, fluid, productTitle, price, href }) => {
   function handleClick(e) {
     const favorite = e.currentTarget.querySelector("button .favorite")
     const notFavorite = e.currentTarget.querySelector("button .notFavorite")
@@ -26,15 +27,15 @@ const ProductV1 = ({ isNew, fluid, productTitle, price }) => {
 
   return (
     <div className={productV1Styles.container}>
-      <a href="/">
+      <Link to={href}>
         {isNew}
         <Img className={productV1Styles.image} fluid={fluid} />
-      </a>
+      </Link>
       <div className={productV1Styles.productActions}>
         <div>
-          <a href="/" className={productV1Styles.productTitle}>
+          <Link to={href} className={productV1Styles.productTitle}>
             <span>{productTitle}</span>
-          </a>
+          </Link>
           <span className={productV1Styles.productPrice}>
             {formatter.format(price)}
           </span>

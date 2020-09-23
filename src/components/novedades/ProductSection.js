@@ -48,12 +48,14 @@ function ProductSection() {
       {data.allWcProducts.edges.map(element => (
         <ProductV1
           key={element.node.wordpress_id}
+          href={`${element.node.wordpress_id}`}
           productTitle={element.node.name}
           fluid={element.node.images[0].localFile.childImageSharp.fluid}
           price={element.node.price}
           aprice={element.node.price}
           isNew={
-            element.node.categories[0].name === "novedades" && <BadgeNew />
+            (element.node.categories[0].name === "novedades" ||
+              element.node.categories[1].name === "novedades") && <BadgeNew />
           }
         />
       ))}

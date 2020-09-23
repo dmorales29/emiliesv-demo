@@ -48,6 +48,11 @@ function ProductSection() {
         return (
           <ProductV1
             key={element.node.wordpress_id}
+            href={
+              element.node.categories[0].name === "novedades"
+                ? `/novedades/${element.node.wordpress_id}`
+                : `${element.node.wordpress_id}`
+            }
             productTitle={element.node.name}
             fluid={element.node.images[0].localFile.childImageSharp.fluid}
             price={element.node.price}
