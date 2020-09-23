@@ -10,7 +10,7 @@ function ProductSection() {
     query {
       allWcProducts(
         filter: { categories: { elemMatch: { name: { eq: "flatforms" } } } }
-        sort: { order: [ASC, DESC], fields: [categories___name, date_created] }
+        sort: { order: [DESC, DESC], fields: [categories___name, date_created] }
       ) {
         edges {
           node {
