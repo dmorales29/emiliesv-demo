@@ -10,10 +10,38 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         edges {
           node {
+            name
+            price
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(jpegQuality: 100, maxWidth: 1080, maxHeight: 1080) {
+                    aspectRatio
+                    base64
+                    originalImg
+                    originalName
+                    presentationHeight
+                    presentationWidth
+                    sizes
+                    src
+                    srcSet
+                    srcSetWebp
+                    tracedSVG
+                    srcWebp
+                  }
+                }
+              }
+            }
             wordpress_id
             categories {
               name
             }
+            attributes {
+              name
+              options
+            }
+            sku
+            short_description
           }
         }
       }
@@ -28,6 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `${node.categories[0].name}/${node.wordpress_id}`,
       component: productTemplate,
+      context: node,
     })
   })
 
@@ -35,14 +64,41 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allWcProducts(
         filter: { categories: { elemMatch: { name: { eq: "flats" } } } }
-        sort: { order: [DESC, DESC], fields: [categories___name, date_created] }
       ) {
         edges {
           node {
+            name
+            price
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(jpegQuality: 100, maxWidth: 1080, maxHeight: 1080) {
+                    aspectRatio
+                    base64
+                    originalImg
+                    originalName
+                    presentationHeight
+                    presentationWidth
+                    sizes
+                    src
+                    srcSet
+                    srcSetWebp
+                    tracedSVG
+                    srcWebp
+                  }
+                }
+              }
+            }
             wordpress_id
             categories {
               name
             }
+            attributes {
+              name
+              options
+            }
+            sku
+            short_description
           }
         }
       }
@@ -60,6 +116,117 @@ exports.createPages = async ({ graphql, actions }) => {
           ? `/novedades/${node.wordpress_id}`
           : `${node.categories[0].name}/${node.wordpress_id}`,
       component: productTemplate,
+      context: node,
+    })
+  })
+
+  const plataformas = await graphql(`
+    query {
+      allWcProducts(
+        filter: { categories: { elemMatch: { name: { eq: "plataformas" } } } }
+      ) {
+        edges {
+          node {
+            name
+            price
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(jpegQuality: 100, maxWidth: 1080, maxHeight: 1080) {
+                    aspectRatio
+                    base64
+                    originalImg
+                    originalName
+                    presentationHeight
+                    presentationWidth
+                    sizes
+                    src
+                    srcSet
+                    srcSetWebp
+                    tracedSVG
+                    srcWebp
+                  }
+                }
+              }
+            }
+            wordpress_id
+            categories {
+              name
+            }
+            description
+          }
+        }
+      }
+    }
+  `)
+
+  if (plataformas.errors) {
+    throw plataformas.errors
+  }
+
+  plataformas.data.allWcProducts.edges.forEach(({ node }) => {
+    createPage({
+      path:
+        node.categories[0].name === "novedades"
+          ? `/novedades/${node.wordpress_id}`
+          : `${node.categories[0].name}/${node.wordpress_id}`,
+      component: productTemplate,
+      context: node,
+    })
+  })
+
+  const flatforms = await graphql(`
+    query {
+      allWcProducts(
+        filter: { categories: { elemMatch: { name: { eq: "flatforms" } } } }
+      ) {
+        edges {
+          node {
+            name
+            price
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(jpegQuality: 100, maxWidth: 1080, maxHeight: 1080) {
+                    aspectRatio
+                    base64
+                    originalImg
+                    originalName
+                    presentationHeight
+                    presentationWidth
+                    sizes
+                    src
+                    srcSet
+                    srcSetWebp
+                    tracedSVG
+                    srcWebp
+                  }
+                }
+              }
+            }
+            wordpress_id
+            categories {
+              name
+            }
+            description
+          }
+        }
+      }
+    }
+  `)
+
+  if (flatforms.errors) {
+    throw flatforms.errors
+  }
+
+  flatforms.data.allWcProducts.edges.forEach(({ node }) => {
+    createPage({
+      path:
+        node.categories.length > 1 && node.categories[1].name === "novedades"
+          ? `/novedades/${node.wordpress_id}`
+          : `${node.categories[0].name}/${node.wordpress_id}`,
+      component: productTemplate,
+      context: node,
     })
   })
 }

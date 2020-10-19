@@ -1,0 +1,158 @@
+/* Breadcrumbs */
+.breadcrumbs {
+  text-transform: uppercase;
+  padding: 25px 0;
+}
+
+.breadcrumbs a {
+  color: var(--medium-gray-2);
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-1);
+}
+
+.breadcrumbsActive {
+  color: var(--color-1);
+}
+
+/* Product Info */
+.productContainer {
+  display: flex;
+}
+
+.productInfo {
+  width: 100%;
+  padding: 0 0 0 30px;
+}
+
+.productName {
+  border-bottom: solid 1px;
+  padding: 0 0 20px 0;
+  margin: 0 0 20px 0;
+}
+
+.productPrice {
+  font-weight: 900;
+  font-size: 30px;
+  color: var(--color-1);
+}
+
+.productOptions {
+  display: flex;
+  height: 30px;
+  position: relative;
+}
+
+.productSize,
+.productColor {
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+
+.productColor {
+  left: 180px;
+}
+
+.productDescription {
+  padding: 0 0 25px 0;
+  margin: 0 0 25px 0;
+  border-bottom: dotted 1px var(--light-gray-2);
+}
+
+.productSizeLabel,
+.productColorLabel {
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 6px 0 0 0;
+}
+
+.productSizeDropdown,
+.productColorDropdown {
+  /* justify-content: space-between;
+  align-items: center; */
+  width: 110px;
+  border: solid 1px var(--medium-gray-2);
+  margin: 0 15px;
+  /* position: absolute; */
+  /* right: -135px; */
+}
+.productSizeDropdown > span,
+.productColorDropdown > span {
+  cursor: pointer;
+  padding: 5px 10px;
+  width: 100%;
+  display: block;
+  z-index: 1;
+}
+
+.arrowDown {
+  position: absolute;
+  right: 24px;
+  top: 10px;
+  z-index: -1;
+}
+
+.productSizeOptions,
+.productColorOptions {
+  list-style: none;
+  width: 100%;
+  background-color: white;
+}
+
+.productSizeOptions li,
+.productColorOptions li {
+  padding: 5px 10px;
+}
+
+.productSizeOptions li:hover,
+.productColorOptions li:hover {
+  background-color: var(--light-gray-2);
+}
+
+.optionSelected {
+  font-weight: 900;
+  color: white;
+  background-color: var(--color-2);
+}
+
+.optionSelected:hover {
+  color: white !important;
+  background-color: var(--color-2) !important;
+}
+
+/* Multi Image */
+.multiImageContainer {
+  display: inline-flex;
+  max-width: 445px;
+  width: 100%;
+}
+
+.miniCarousel {
+  width: 75px;
+}
+
+.individualImage {
+  margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.active {
+  outline: 2px solid black;
+}
+
+.mainImage {
+  position: relative;
+  max-width: 445px;
+  margin: 0 0 0 30px;
+  width: 100%;
+}
+
+/* UniImage */
+.uniImageContainer {
+  position: relative;
+  width: 445px;
+}

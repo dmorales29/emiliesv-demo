@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa"
 
 import productV1Styles from "./productV1.module.css"
+import { formatter } from "../helpers/index"
 
 const ProductV1 = ({ isNew, fluid, productTitle, price, href }) => {
   function handleClick(e) {
@@ -18,12 +19,6 @@ const ProductV1 = ({ isNew, fluid, productTitle, price, href }) => {
       favorite.style.display = "none"
     }
   }
-
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  })
 
   return (
     <div className={productV1Styles.container}>
