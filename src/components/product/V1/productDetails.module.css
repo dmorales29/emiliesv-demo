@@ -72,14 +72,11 @@
 
 .productSizeDropdown,
 .productColorDropdown {
-  /* justify-content: space-between;
-  align-items: center; */
   width: 110px;
   border: solid 1px var(--medium-gray-2);
   margin: 0 15px;
-  /* position: absolute; */
-  /* right: -135px; */
 }
+
 .productSizeDropdown > span,
 .productColorDropdown > span {
   cursor: pointer;

@@ -6,7 +6,7 @@ function MainCTAComponent(props) {
   return (
     <div className={mainCTAComponentStyles.header_container}>
       <h1>{props.titleData}</h1>
-      <MainCTABtn btnCTA="Nuevos estilos" />
+      <MainCTABtn to="novedades" btnCTA="Nuevos estilos" />
     </div>
   )
 }

@@ -191,6 +191,7 @@ export default function ProductDetails({
                       e
                     )
                   }
+                  aria-hidden="true"
                 >
                   {size.sizeSelected}
                 </span>
@@ -207,6 +208,7 @@ export default function ProductDetails({
                       className="dropdownSizeOption"
                       id={`talla${index}`}
                       onClick={sizeOnClick}
+                      aria-hidden="true"
                     >
                       {option}
                     </li>
@@ -231,6 +233,7 @@ export default function ProductDetails({
                       e
                     )
                   }
+                  aria-hidden="true"
                 >
                   {color.colorSelected}
                 </span>
@@ -247,6 +250,7 @@ export default function ProductDetails({
                       className="dropdownColorOption"
                       id={`color${index}`}
                       onClick={colorHandleOnClick}
+                      aria-hidden="true"
                     >
                       {option}
                     </li>

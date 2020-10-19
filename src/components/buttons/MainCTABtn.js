@@ -1,11 +1,12 @@
 import React from "react"
+import { Link } from "gatsby"
 import mainCTABtnStyles from "./mainCTABtn.module.css"
 
-function MainCTA(props) {
+function MainCTA({ btnCTA, to }) {
   return (
-    <a href="/" className={mainCTABtnStyles.btn_cta}>
-      {props.btnCTA}
-    </a>
+    <Link to={to} className={mainCTABtnStyles.btn_cta}>
+      {btnCTA}
+    </Link>
   )
 }
 

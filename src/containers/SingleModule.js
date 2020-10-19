@@ -41,7 +41,11 @@ function SingleSectionRight(props) {
           : singleModuleStyles.rightFlexDirection
       } ${singleModuleStyles.mainSection}`}
     >
-      <TitleCTA titleData={props.titleData} btnCTA={props.btnCTA} />
+      <TitleCTA
+        to={props.to}
+        titleData={props.titleData}
+        btnCTA={props.btnCTA}
+      />
       <div className={`${singleModuleStyles.photoContainer}`}>
         <SquareImage
           data={props.SquareImageData}

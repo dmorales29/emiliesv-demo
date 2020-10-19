@@ -38,6 +38,7 @@ function SingleSectionRight() {
       <SingleModule
         selectSide="right"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
+        to="flats"
         btnCTA="Descubre"
         SquareImageData={
           data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile

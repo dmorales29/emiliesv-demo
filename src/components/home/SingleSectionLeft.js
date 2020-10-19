@@ -38,6 +38,7 @@ function SingleSectionLeft() {
       <SingleModule
         selectSide="left"
         titleData={data.allWordpressPage.edges[0].node.acf.slogan_sandalias}
+        to="sandalias"
         btnCTA="Encuentra el ideal"
         SquareImageData={
           data.allWordpressPage.edges[0].node.acf.imagen_sandalias.localFile

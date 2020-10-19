@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import {
   IoIosArrowDropleftCircle,
@@ -71,9 +71,9 @@ function Slider() {
       <h2>Nuevos estilos</h2>
       <div className={sliderStyles.novedades_container}>
         {data.allWcProducts.edges.map(nameOfElement => (
-          <a
+          <Link
             style={{ transform: `translateX(${x}%)` }}
-            href="/"
+            to={`/novedades/${nameOfElement.node.wordpress_id}`}
             key={nameOfElement.node.wordpress_id}
             className={sliderStyles.wrapper_images}
           >
@@ -84,7 +84,7 @@ function Slider() {
                 nameOfElement.node.images[0].localFile.childImageSharp.fluid
               }
             />
-          </a>
+          </Link>
         ))}
       </div>
       <div className={sliderStyles.slider_controller}>

@@ -78,7 +78,7 @@ function DoubleSection() {
               }
               titleSquare={data.titlePlataformas.edges[0].node.title}
             />
-            <MainCTABtn btnCTA="Descubre" />
+            <MainCTABtn to="plataformas" btnCTA="Descubre" />
           </div>
         </div>
         <div className={doubleSectionStyles.imageRight}>
@@ -90,7 +90,7 @@ function DoubleSection() {
               }
               titleSquare={data.titleFlatforms.edges[0].node.title}
             />
-            <MainCTABtn btnCTA="Descubre" />
+            <MainCTABtn to="flatforms" btnCTA="Descubre" />
           </div>
         </div>
       </div>
