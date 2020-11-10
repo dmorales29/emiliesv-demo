@@ -50,6 +50,21 @@ footer {
   color: white;
 }
 
+.emailMessage {
+  margin: 0 0 10px 0;
+  min-height: 40px;
+}
+
+/* INPUT MAILING*/
+.inputName {
+  margin: 0;
+}
+
+.disabledSubmit {
+  background-color: var(--medium-gray-1) !important;
+}
+/* END INPUT MAILING*/
+
 .contactInfo span {
   text-transform: uppercase;
 }
