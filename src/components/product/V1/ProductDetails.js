@@ -7,6 +7,9 @@ import { MainImage } from "./MainImage"
 import productDetailsStyles from "./productDetails.module.css"
 import BadgeNew from "../../../utils/BadgeNew"
 import { formatter } from "../../../helpers/index"
+import MainCTA from "../../buttons/MainCTABtn"
+import InvertedMainCTABtn from "../../buttons/InvertedMainCTABtn"
+import { FaShoppingCart, FaHeart } from "react-icons/fa"
 
 export default function ProductDetails({
   name,
@@ -28,6 +31,7 @@ export default function ProductDetails({
     colorId: "color0",
     colorIsOpen: false,
   })
+  const [counter, setCounter] = useState(0)
 
   const imageHandleOnClick = e => {
     setImageSelected(e.currentTarget.id)
@@ -107,6 +111,18 @@ export default function ProductDetails({
       colorId: e.target.id,
       colorIsOpen: false,
     })
+  }
+
+  const addQTY = e => {
+    setCounter(counter + 1)
+  }
+
+  const reduceQTY = e => {
+    if (counter === 0) {
+      setCounter(0)
+    } else {
+      setCounter(counter - 1)
+    }
   }
 
   return (
@@ -259,7 +275,41 @@ export default function ProductDetails({
               </div>
             </div>
           </div>
-          <span>SKU: {sku}</span>
+          <div className={productDetailsStyles.QTYOptions + " noselect"}>
+            <div className={productDetailsStyles.counterContainer}>
+              <span onClick={reduceQTY} className={productDetailsStyles.add}>
+                -
+              </span>
+              <span className={productDetailsStyles.counter}>{counter}</span>
+              <span onClick={addQTY} className={productDetailsStyles.reduce}>
+                +
+              </span>
+            </div>
+            <div className={productDetailsStyles.addToCart}>
+              <MainCTA
+                icon={
+                  <FaShoppingCart
+                    size="13"
+                    className={productDetailsStyles.iconCTA}
+                  />
+                }
+                btnCTA={"Añadir al carrito"}
+                to="/"
+              />
+            </div>
+          </div>
+          <div className={productDetailsStyles.addToFavorite}>
+            <InvertedMainCTABtn
+              icon={
+                <FaHeart size="13" className={productDetailsStyles.iconCTA} />
+              }
+              to="/"
+              btnCTA="Añadir a favoritos"
+            />
+          </div>
+          <div className={productDetailsStyles.sku}>
+            <span>SKU: {sku}</span>
+          </div>
         </div>
       </div>
     </>
