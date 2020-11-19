@@ -9,7 +9,7 @@ import BadgeNew from "../../../utils/BadgeNew"
 import { formatter } from "../../../helpers/index"
 import MainCTA from "../../buttons/MainCTABtn"
 import InvertedMainCTABtn from "../../buttons/InvertedMainCTABtn"
-import { FaShoppingCart, FaHeart } from "react-icons/fa"
+import { FaShoppingCart, FaHeart, FaMinus, FaPlus } from "react-icons/fa"
 
 export default function ProductDetails({
   name,
@@ -31,7 +31,7 @@ export default function ProductDetails({
     colorId: "color0",
     colorIsOpen: false,
   })
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(1)
 
   const imageHandleOnClick = e => {
     setImageSelected(e.currentTarget.id)
@@ -57,8 +57,10 @@ export default function ProductDetails({
         document.removeEventListener("click", checkClickedElement)
       }
     }
+    console.log(e.target.id)
+    console.log(label)
 
-    if ((e.target.id = label) && !size.sizeIsOpen) {
+    if (!size.sizeIsOpen) {
       //Clicked id span, added the listener, open dropdown
       setSize({ ...size, sizeIsOpen: true })
       document
@@ -92,7 +94,7 @@ export default function ProductDetails({
       }
     }
 
-    if ((e.target.id = label) && !color.colorIsOpen) {
+    if (!color.colorIsOpen) {
       //Clicked id span, added the listener, open dropdown
       setColor({ ...color, colorIsOpen: true })
       document
@@ -118,15 +120,15 @@ export default function ProductDetails({
   }
 
   const reduceQTY = e => {
-    if (counter === 0) {
-      setCounter(0)
+    if (counter === 1) {
+      setCounter(1)
     } else {
       setCounter(counter - 1)
     }
   }
 
   return (
-    <>
+    <div className={productDetailsStyles.mainContainer}>
       <div className={productDetailsStyles.breadcrumbs}>
         <span>
           <Link to={`/`}>Home</Link>
@@ -198,20 +200,21 @@ export default function ProductDetails({
               >
                 {attributes[1].name}
               </span>
-              <div className={productDetailsStyles.productSizeDropdown}>
-                <span
-                  onClick={e =>
-                    sizeDropDownOnclick(
-                      "selectedSizeOptionLabel",
-                      "dropdownSizeOption",
-                      e
-                    )
-                  }
-                  aria-hidden="true"
-                >
-                  {size.sizeSelected}
-                </span>
-                <FaChevronDown className={productDetailsStyles.arrowDown} />
+              <div
+                className={productDetailsStyles.productSizeDropdown}
+                onClick={e =>
+                  sizeDropDownOnclick(
+                    "selectedSizeOptionLabel",
+                    "dropdownSizeOption",
+                    e
+                  )
+                }
+                aria-hidden="true"
+              >
+                <div className={productDetailsStyles.dropDownContainer}>
+                  <span>{size.sizeSelected}</span>
+                  <FaChevronDown className={productDetailsStyles.arrowDown} />
+                </div>
                 <ul
                   className={`${size.sizeIsOpen ? "show " : "hide "}${
                     productDetailsStyles.productSizeOptions
@@ -240,20 +243,21 @@ export default function ProductDetails({
               >
                 {attributes[0].name}
               </span>
-              <div className={productDetailsStyles.productColorDropdown}>
-                <span
-                  onClick={e =>
-                    colorHandleDropDown(
-                      "selectedColorOptionLabel",
-                      "dropdownColorOption",
-                      e
-                    )
-                  }
-                  aria-hidden="true"
-                >
-                  {color.colorSelected}
-                </span>
-                <FaChevronDown className={productDetailsStyles.arrowDown} />
+              <div
+                className={productDetailsStyles.productColorDropdown}
+                onClick={e =>
+                  colorHandleDropDown(
+                    "selectedColorOptionLabel",
+                    "dropdownColorOption",
+                    e
+                  )
+                }
+                aria-hidden="true"
+              >
+                <div className={productDetailsStyles.dropDownContainer}>
+                  <span>{color.colorSelected}</span>
+                  <FaChevronDown className={productDetailsStyles.arrowDown} />
+                </div>
                 <ul
                   className={`${color.colorIsOpen ? "show " : "hide "}${
                     productDetailsStyles.productColorOptions
@@ -277,14 +281,24 @@ export default function ProductDetails({
           </div>
           <div className={productDetailsStyles.QTYOptions + " noselect"}>
             <div className={productDetailsStyles.counterContainer}>
-              <span onClick={reduceQTY} className={productDetailsStyles.add}>
-                -
+              <span
+                onClick={reduceQTY}
+                className={productDetailsStyles.add}
+                aria-hidden="true"
+              >
+                <FaMinus />
               </span>
               <span className={productDetailsStyles.counter}>{counter}</span>
-              <span onClick={addQTY} className={productDetailsStyles.reduce}>
-                +
+              <span
+                onClick={addQTY}
+                className={productDetailsStyles.reduce}
+                aria-hidden="true"
+              >
+                <FaPlus />
               </span>
             </div>
+          </div>
+          <div className={productDetailsStyles.CTAContainer}>
             <div className={productDetailsStyles.addToCart}>
               <MainCTA
                 icon={
@@ -297,21 +311,21 @@ export default function ProductDetails({
                 to="/"
               />
             </div>
-          </div>
-          <div className={productDetailsStyles.addToFavorite}>
-            <InvertedMainCTABtn
-              icon={
-                <FaHeart size="13" className={productDetailsStyles.iconCTA} />
-              }
-              to="/"
-              btnCTA="Añadir a favoritos"
-            />
+            <div className={productDetailsStyles.addToFavorite}>
+              <InvertedMainCTABtn
+                icon={
+                  <FaHeart size="13" className={productDetailsStyles.iconCTA} />
+                }
+                to="/"
+                btnCTA="Añadir a favoritos"
+              />
+            </div>
           </div>
           <div className={productDetailsStyles.sku}>
             <span>SKU: {sku}</span>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
