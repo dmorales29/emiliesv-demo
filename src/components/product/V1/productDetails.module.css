@@ -140,13 +140,6 @@
   justify-content: space-around;
 }
 
-/* .arrowDown {
-  position: absolute;
-  right: 24px;
-  top: 10px;
-  z-index: -1;
-} */
-
 .productSizeOptions,
 .productColorOptions {
   list-style: none;
