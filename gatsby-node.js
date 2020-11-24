@@ -153,7 +153,12 @@ exports.createPages = async ({ graphql, actions }) => {
             categories {
               name
             }
-            description
+            attributes {
+              name
+              options
+            }
+            sku
+            short_description
           }
         }
       }
@@ -208,7 +213,12 @@ exports.createPages = async ({ graphql, actions }) => {
             categories {
               name
             }
-            description
+            attributes {
+              name
+              options
+            }
+            sku
+            short_description
           }
         }
       }
