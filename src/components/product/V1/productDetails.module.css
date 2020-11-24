@@ -281,7 +281,6 @@
 /* Multi Image */
 .multiImageContainer {
   display: inline-flex;
-  /* max-width: 445px; */
   width: 100%;
   min-width: 350px;
   flex-direction: column-reverse;
@@ -315,7 +314,6 @@
 
 .mainImage {
   position: relative;
-  /* max-width: 445px; */
   margin: 0 0 10px 0;
   width: 100%;
 }
@@ -323,7 +321,6 @@
 /* UniImage */
 .uniImageContainer {
   position: relative;
-  /* max-width: 445px; */
   width: 100%;
   min-width: 350px;
 }
