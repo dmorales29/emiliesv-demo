@@ -1,26 +1,28 @@
 .container {
   max-width: 375px;
   width: 100%;
-  margin: 0 25px 40px 0;
+  margin: 0 25px 0 0;
   flex-basis: calc(25% - 18.74px);
   position: relative;
 }
 
 .container:nth-of-type(4n) {
-  margin: 0 0 40px 0;
+  margin: 0 0 0 0;
 }
 
 .container a {
   text-decoration: none;
+  font-size: 0;
+  display: block;
 }
 
 .image {
-  max-height: 250px;
+  /* max-height: 250px; */
 }
 
 .productActions {
   display: flex;
-  padding: 10px 0 0 0;
+  padding: 15px 0;
   text-align: center;
   flex-direction: column;
 }
@@ -44,7 +46,7 @@
 }
 
 .productButtons {
-  padding: 10px 0;
+  padding: 10px 0 0 0;
 }
 
 .productButtons button {
@@ -88,7 +90,7 @@
   }
 
   .container:nth-of-type(2n) {
-    margin: 0 0 40px 0;
+    margin: 0;
   }
 }
 
@@ -98,6 +100,6 @@
   }
 
   .container:nth-of-type(n) {
-    margin: 0 0 40px 0;
+    margin: 0;
   }
 }
