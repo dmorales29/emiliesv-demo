@@ -1,63 +1,34 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+
 import mainSectionStyles from "./mainSection.module.css"
 import Slider from "./Slider"
 import MainCTAComponent from "./MainCTAComponent"
 
-function MainSection() {
-  const data = useStaticQuery(graphql`
-    query {
-      home: allWordpressPage(filter: { slug: { eq: "home" } }) {
-        edges {
-          node {
-            acf {
-              slogan_principal
-              imagen_principal {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      decoration: allImageSharp(
-        filter: { fluid: { originalName: { eq: "decoration-01.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return (
+function MainSection({ data, loader }) {
+  return loader ? (
     <section className={mainSectionStyles.main_container}>
-      <MainCTAComponent
-        titleData={data.home.edges[0].node.acf.slogan_principal}
-      />
-      <Img
-        className={mainSectionStyles.main_container_image}
-        fluid={
-          data.home.edges[0].node.acf.imagen_principal.localFile.childImageSharp
-            .fluid
-        }
-      />
-      <Img
+      <MainCTAComponent titleData={data[0].slogan_principal} />
+      <div className={mainSectionStyles.main_container_image}>
+        <img
+          className={mainSectionStyles.main_image}
+          src={`http://localhost:1337${data[0].imagen_principal.url}`}
+          alt={data[0].alt_imagen_principal}
+        />
+      </div>
+      <img
         className={mainSectionStyles.background_image}
-        fluid={data.decoration.edges[0].node.fluid}
+        src={`http://localhost:1337${data[0].decoration_02.url}`}
+        alt={data[0].alt_decoration_01}
       />
       <Slider />
     </section>
+  ) : (
+    <div className="lds-ellipsis dark">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   )
 }
 

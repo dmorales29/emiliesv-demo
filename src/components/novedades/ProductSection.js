@@ -31,6 +31,7 @@ function ProductSection() {
         element => element.categories.length > 1 && element
       )
 
+      // Order new entries
       filterNovedades.sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
 
       setAllData(filterNovedades)
@@ -42,7 +43,6 @@ function ProductSection() {
   return (
     <>
       <ProductSectionContainer title="Novedades">
-        {/* <span>{novedades.map(el => el.categories.length)}</span> */}
         {allData.length > 0 ? (
           allData.map(
             element =>

@@ -5,6 +5,11 @@
 }
 
 .main_container_image {
+  font-size: 0;
+  position: relative;
+}
+
+.main_image {
   width: 445px;
 }
 
@@ -17,7 +22,7 @@
 }
 
 @media only screen and (max-width: 1023px) {
-  .main_container_image {
+  .main_image {
     width: 400px;
   }
 
@@ -31,10 +36,6 @@
     flex-direction: column;
   }
 
-  .main_container_image {
-    width: 100%;
-  }
-
   .main_container_image::before {
     content: "";
     background-color: black;
@@ -43,6 +44,10 @@
     width: 100%;
     height: 100%;
     opacity: 0.5;
+  }
+
+  .main_image {
+    width: 100%;
   }
 
   .background_image {

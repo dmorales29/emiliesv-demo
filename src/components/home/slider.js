@@ -1,6 +1,5 @@
-import React, { useState } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
+import React, { useState, useEffect } from "react"
+import { Link } from "gatsby"
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
@@ -41,49 +40,62 @@ function Slider() {
     }
   }
 
-  const data = useStaticQuery(graphql`
-    query {
-      allWcProducts(
-        filter: { categories: { elemMatch: { name: { eq: "novedades" } } } }
-        sort: { fields: wordpress_id, order: DESC }
-        limit: 6
-      ) {
-        edges {
-          node {
-            images {
-              localFile {
-                childImageSharp {
-                  fluid(jpegQuality: 100, maxWidth: 200, maxHeight: 142) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            wordpress_id
-          }
-        }
-      }
+  const [allData, setAllData] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchSandalias = await fetch("http://localhost:1337/sandaliases/")
+      const sandaliasData = await fetchSandalias.json()
+
+      const fetchFlats = await fetch("http://localhost:1337/flats/")
+      const flatsData = await fetchFlats.json()
+
+      const fetchPlataformas = await fetch("http://localhost:1337/plataformas/")
+      const plataformasData = await fetchPlataformas.json()
+
+      const fetchFlatforms = await fetch("http://localhost:1337/flatforms/")
+      const flatformsData = await fetchFlatforms.json()
+
+      const myDataResult = sandaliasData.concat(
+        flatsData,
+        plataformasData,
+        flatformsData
+      )
+
+      const filterNovedades = myDataResult.filter(
+        element => element.categories.length > 1 && element
+      )
+
+      // Order new entries
+      filterNovedades.sort((a, b) => (a.created_at < b.created_at ? 1 : -1))
+
+      // Slice first 6 elements
+      const latestNews = filterNovedades.slice(0, 6)
+
+      setAllData(latestNews)
     }
-  `)
+
+    fetchData()
+  }, [])
 
   return (
     <div className={sliderStyles.slider_container}>
       <h2>Nuevos estilos</h2>
       <div className={sliderStyles.novedades_container}>
-        {data.allWcProducts.edges.map(nameOfElement => (
+        {allData.map(element => (
           <Link
             style={{ transform: `translateX(${x}%)` }}
-            to={`/novedades/${nameOfElement.node.wordpress_id}`}
-            key={nameOfElement.node.wordpress_id}
+            to={`/novedades/${element.sku}`}
+            key={element.sku}
             className={sliderStyles.wrapper_images}
           >
             <BadgeNew />
-            <Img
-              className={sliderStyles.novedades_container_img}
-              fluid={
-                nameOfElement.node.images[0].localFile.childImageSharp.fluid
-              }
-            />
+            <div className={sliderStyles.wrapper_image}>
+              <img
+                src={`http://localhost:1337${element.images[0].formats.large.url}`}
+                alt={element.alt}
+              />
+            </div>
           </Link>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
-import MainSection from "../components/home/MainSection"
+import MainContainerHome from "../containers/home/MainContainerHome"
+
 import SingleSectionLeft from "../components/home/SingleSectionLeft"
 import SingleSectionRight from "../components/home/SingleSectionRight"
 import DoubleSection from "../components/home/DoubleSection"
@@ -13,7 +14,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <MainSection />
+      <MainContainerHome />
       <SingleSectionLeft />
       <Banner970x90 />
       <SingleSectionRight />

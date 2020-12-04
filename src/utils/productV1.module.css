@@ -16,10 +16,6 @@
   display: block;
 }
 
-.image {
-  /* max-height: 250px; */
-}
-
 .productActions {
   display: flex;
   padding: 15px 0;

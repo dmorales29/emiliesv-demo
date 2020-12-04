@@ -24,10 +24,11 @@
   position: relative;
   margin: 0 40px 0 0;
   transition: all 0.5s ease;
+  font-size: 0;
 }
 
-.novedades_container_img {
-  width: 200px;
+.wrapper_image {
+  min-width: 200px;
 }
 
 .slider_controller {
