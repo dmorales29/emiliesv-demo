@@ -1,64 +1,46 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import singleModuleStyles from "./singleModule.module.css"
-import Img from "gatsby-image"
 import TitleCTA from "./TitleCTA"
 import SquareImage from "./SquareImage"
 
-function SingleSectionRight(props) {
-  const data = useStaticQuery(graphql`
-    query {
-      decorationArrow: allImageSharp(
-        filter: { fluid: { originalName: { eq: "arrow.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      decorationPolka: allImageSharp(
-        filter: { fluid: { originalName: { eq: "decoration-02.png" } } }
-      ) {
-        edges {
-          node {
-            fluid(jpegQuality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  `)
-
+function SingleSectionRight({
+  selectSide,
+  to,
+  titleData,
+  btnCTA,
+  srcSquareImage,
+  altSquareImage,
+  titleSquare,
+  arrowDecorationSrc,
+  arrowDecorationAlt,
+  polkaDecorationSrc,
+  polkaDecorationAlt,
+}) {
   return (
     <div
       className={`${
-        props.selectSide === "left"
+        selectSide === "left"
           ? singleModuleStyles.leftFlexDirection
           : singleModuleStyles.rightFlexDirection
       } ${singleModuleStyles.mainSection}`}
     >
-      <TitleCTA
-        to={props.to}
-        titleData={props.titleData}
-        btnCTA={props.btnCTA}
-      />
+      <TitleCTA to={to} titleData={titleData} btnCTA={btnCTA} />
       <div className={`${singleModuleStyles.photoContainer}`}>
         <SquareImage
-          data={props.SquareImageData}
-          titleSquare={props.titleSquare}
+          srcSquareImage={srcSquareImage}
+          altSquareImage={altSquareImage}
+          titleSquare={titleSquare}
         />
       </div>
-      <Img
+      <img
         className={`${singleModuleStyles.arrowDecoration}`}
-        fluid={data.decorationArrow.edges[0].node.fluid}
+        src={arrowDecorationSrc}
+        alt={arrowDecorationAlt}
       />
-      <Img
+      <img
         className={`${singleModuleStyles.polkaDecoration}`}
-        fluid={data.decorationPolka.edges[0].node.fluid}
+        src={polkaDecorationSrc}
+        alt={polkaDecorationAlt}
       />
     </div>
   )

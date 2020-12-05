@@ -1,12 +1,11 @@
 import React from "react"
-import Img from "gatsby-image"
 import squareImageStyles from "./squareImage.module.css"
 
-function SquareImage(props) {
+function SquareImage({ srcSquareImage, altSquareImage, titleSquare }) {
   return (
     <div className={squareImageStyles.image}>
-      <Img fluid={props.data} />
-      <span>{props.titleSquare}</span>
+      <img src={srcSquareImage} alt={altSquareImage} />
+      <span>{titleSquare}</span>
     </div>
   )
 }

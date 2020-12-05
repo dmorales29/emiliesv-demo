@@ -1,52 +1,25 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import SingleModule from "../../containers/SingleModule"
 
-function SingleSectionRight() {
-  const data = useStaticQuery(graphql`
-    query {
-      allWordpressPage(filter: { slug: { eq: "home" } }) {
-        edges {
-          node {
-            acf {
-              imagen_flats {
-                localFile {
-                  childImageSharp {
-                    fluid(jpegQuality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              slogan_flats
-            }
-          }
-        }
-      }
-      title: allWordpressPage(filter: { menu_order: { eq: 3 } }) {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-    }
-  `)
-
+function SingleSectionRight({ data, loader }) {
   return (
-    <section>
-      <SingleModule
-        selectSide="right"
-        titleData={data.allWordpressPage.edges[0].node.acf.slogan_flats}
-        to="flats"
-        btnCTA="Descubre"
-        SquareImageData={
-          data.allWordpressPage.edges[0].node.acf.imagen_flats.localFile
-            .childImageSharp.fluid
-        }
-        titleSquare={data.title.edges[0].node.title}
-      />
-    </section>
+    loader && (
+      <section>
+        <SingleModule
+          selectSide="right"
+          titleData={data[0].slogan_flats}
+          to="flats"
+          btnCTA="Descubre"
+          srcSquareImage={`http://localhost:1337${data[0].imagen_flats.url}`}
+          altSquareImage={data[0].alt_imagen_flats}
+          titleSquare="flats"
+          arrowDecorationSrc={`http://localhost:1337${data[0].decoration_01.url}`}
+          arrowDecorationAlt={data[0].alt_decoration_01}
+          polkaDecorationSrc={`http://localhost:1337${data[0].decoration_03.url}`}
+          polkaDecorationAlt={data[0].alt_decoration_03}
+        />
+      </section>
+    )
   )
 }
 
